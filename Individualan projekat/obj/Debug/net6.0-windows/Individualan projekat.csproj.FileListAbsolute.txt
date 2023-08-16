@@ -1,0 +1,68 @@
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.csproj.AssemblyReference.cache
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AdministratorAccountView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\GuestAccountView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerAccountView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\SignInHotelView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\UserView.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.cache
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.lref
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.exe
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.deps.json
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.runtimeconfig.json
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.dll
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.pdb
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AdministratorAccountView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\GuestAccountView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerAccountView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\SignInHotelView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\UserView.baml
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.g.resources
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.AssemblyInfoInputs.cache
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.AssemblyInfo.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.csproj.CoreCompileInputs.cache
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.dll
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\refint\Individualan projekat.dll
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.pdb
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.genruntimeconfig.cache
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\ref\Individualan projekat.dll
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.g.cs
+C:\Users\masha\source\repos\HCI\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.exe
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.deps.json
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.runtimeconfig.json
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.dll
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.pdb
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.csproj.AssemblyReference.cache
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.cache
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.lref
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.g.resources
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.AssemblyInfoInputs.cache
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.AssemblyInfo.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.csproj.CoreCompileInputs.cache
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.dll
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\refint\Individualan projekat.dll
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.pdb
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.genruntimeconfig.cache
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\ref\Individualan projekat.dll

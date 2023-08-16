@@ -1,0 +1,17 @@
+﻿<Window x:Class="Individualan_projekat.View.ApartmentFilterCondition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Individualan_projekat.View"
+        mc:Ignorable="d"
+        Title="Apartment" Height="250" Width="300">
+    <Grid>
+        <ComboBox ItemsSource="{Binding Apartments}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,41,0,0" Width="129"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="133,100,0,0" Width="131" Height="25"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,43,0,0" TextWrapping="Wrap" Text="Select option" VerticalAlignment="Top" Height="20" Width="73"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,104,0,0" TextWrapping="Wrap" Text="Enter a number" VerticalAlignment="Top"  Height="20" Width="88"/>
+
+    </Grid>
+</Window>

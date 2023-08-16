@@ -1,0 +1,41 @@
+﻿<Window x:Class="Individualan_projekat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Individualan_projekat"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="381">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="436"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150.373"></RowDefinition>
+                <RowDefinition Height="150.627"/>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0" Margin="0,17,60,2" Grid.ColumnSpan="2" RenderTransformOrigin="0.264,0.523" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Height="30" Margin="10,85,0,85" HorizontalAlignment="Left" Width="94">Username</Label>
+                <Label Grid.Row="1" Grid.Column="0" Height="30" Margin="10,10,84,155">Password</Label>
+
+                <TextBox Grid.Row="0" Text="{Binding Path=Email}" Height="30" Grid.ColumnSpan="2" Margin="94,76,58,76"/>
+                <PasswordBox Grid.Row="1" x:Name="passwordBox" Height="30" Grid.ColumnSpan="2" Margin="94,10,58,155" Password=""/>
+                <Button Content=" Confirm " IsCancel="True" HorizontalAlignment="Left" Click="LogIn" RenderTransformOrigin="1.72,-3.142" Width="126" Grid.ColumnSpan="2" Margin="125,126,0,29" Grid.Row="1" />
+            </Grid>
+            <WrapPanel Grid.Row="2"  FlowDirection="LeftToRight" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="90,0,0,0" />
+        </Grid>
+    </Grid>
+</Window>

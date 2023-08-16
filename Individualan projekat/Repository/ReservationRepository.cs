@@ -1,0 +1,124 @@
+﻿using Individualan_projekat.Model;
+using Individualan_projekat.Observer;
+using Individualan_projekat.RepositoryInterfaces;
+using Individualan_projekat.Serializer;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Individualan_projekat.Repository
+{
+    public class ReservationRepository : IReservationRepository
+    {
+        private const string _filePath = "../../../Data/Reservation.csv";
+        private readonly List<IObserver> _observers;
+        private readonly Serializer<Reservation> _serializer;
+        private List<Reservation> _reservations;
+        private static IReservationRepository _instance = null;
+        public static IReservationRepository GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new ReservationRepository();
+            }
+            return _instance;
+        }
+        private ReservationRepository()
+        {
+            _reservations = new List<Reservation>();
+            _serializer = new Serializer<Reservation>();
+            _reservations = _serializer.FromCSV(_filePath);
+            _observers = new List<IObserver>();
+            SetStatus();
+        }
+        public void SetStatus()
+        {
+            foreach (Reservation reservation in _reservations)
+            {
+                //Kako popuniti ovu petlju?
+            }
+            Save();
+        }
+       
+        public Reservation Create(Reservation entity)
+        {
+            entity.Id = NextId();
+            _reservations.Add(entity);
+            Save();
+            NotifyObservers();
+            return entity;
+        }
+        public Reservation Delete(Reservation entity)
+        {
+            //_reservations.Remove(entity);
+            entity.Deleted = true;
+            Save();
+            NotifyObservers();
+            return entity;
+        }
+        public Reservation Get(int id)
+        {
+            return _reservations.Find(r => r.Id == id && r.Deleted == false);
+        }
+        public List<Reservation> GetAll()
+        {
+            return _reservations.FindAll(r => r.Deleted == false);
+        }
+        public int NextId()
+        {
+            if (_reservations.Count == 0)
+                return 0;
+            int nextId = _reservations[_reservations.Count - 1].Id + 1;
+            foreach (Reservation r in _reservations)
+            {
+                if (nextId == r.Id)
+                {
+                    nextId++;
+                }
+            }
+            return nextId;
+        }
+        public void NotifyObservers()
+        {
+            foreach (var observer in _observers)
+            {
+                observer.Update();
+            }
+        }
+        public void Save()
+        {
+            _serializer.ToCSV(_filePath, _reservations);
+        }
+        public void Subscribe(IObserver observer)
+        {
+            _observers.Add(observer);
+        }
+        public void Unsubscribe(IObserver observer)
+        {
+            _observers.Remove(observer);
+        }
+        public Reservation Update(Reservation entity)
+        {
+            var oldEntity = Get(entity.Id);
+            if (oldEntity == null)
+            {
+                return null;
+            }
+            oldEntity = entity;
+            Save();
+            NotifyObservers();
+            return oldEntity;
+        }
+        void IReservationRepository.Create(Reservation reservation)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IReservationRepository.Delete(Reservation reservation)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
