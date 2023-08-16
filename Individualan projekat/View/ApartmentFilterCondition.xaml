@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="Apartment" Height="250" Width="300">
     <Grid>
-        <ComboBox ItemsSource="{Binding Apartments}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,41,0,0" Width="129"/>
-        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="133,100,0,0" Width="131" Height="25"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,41,0,0">
+            <ComboBox ItemsSource="{Binding Apartments}" Width="129"/>
+            <TextBlock Text="{Binding ValidationErrors[Apartments]}" Foreground="Red" FontSize="10" Height="15"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,100,0,0">
+            <TextBox TextWrapping="Wrap"  Width="131" Height="22"/>
+            <TextBlock Text="{Binding ValidationErrors[Number]}" Foreground="Red" FontSize="10" Height="15"/>
+        </StackPanel>
         <Button Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,43,0,0" TextWrapping="Wrap" Text="Select option" VerticalAlignment="Top" Height="20" Width="73"/>
         <TextBlock HorizontalAlignment="Left" Margin="31,104,0,0" TextWrapping="Wrap" Text="Enter a number" VerticalAlignment="Top"  Height="20" Width="88"/>

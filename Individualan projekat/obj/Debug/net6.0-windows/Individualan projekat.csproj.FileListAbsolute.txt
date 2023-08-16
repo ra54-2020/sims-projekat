@@ -46,14 +46,12 @@ C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\bin\Debug\net6.0-windows\Individualan projekat.pdb
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.csproj.AssemblyReference.cache
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.g.cs
-C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.cache
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat_MarkupCompile.lref
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\MainWindow.baml
-C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AddReservationView.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentFilterCondition.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelView.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.g.resources
