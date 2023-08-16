@@ -33,5 +33,6 @@ namespace Individualan_projekat.View
             Apartments.Add("People");
             Apartments.Add("Room and people");
         }
+
     }
 }
