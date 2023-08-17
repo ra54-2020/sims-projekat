@@ -12,7 +12,7 @@
             <TextBlock Text="{Binding ValidationErrors[Apartments]}" Foreground="Red" FontSize="10" Height="15"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,100,0,0">
-            <TextBox TextWrapping="Wrap"  Width="131" Height="22"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding Condition}"  Width="131" Height="22"/>
             <TextBlock Text="{Binding ValidationErrors[Number]}" Foreground="Red" FontSize="10" Height="15"/>
         </StackPanel>
         <Button Click="Search" Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="26" Width="46"/>

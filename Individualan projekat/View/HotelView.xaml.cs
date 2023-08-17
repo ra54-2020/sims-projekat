@@ -28,11 +28,26 @@ namespace Individualan_projekat.View
         public event PropertyChangedEventHandler PropertyChanged;
         private readonly IHotelService _hotelService;
         private readonly IApartmentService _apartmentService;
-        public ObservableCollection<Apartment> Apartments { get; set; }
+        public static ObservableCollection<Apartment> Apartments { get; set; }
 
         public ObservableCollection<String> Hotels { get; set; }
-        public String SelectedHotel { get; set; }
-        public User LoggedUser { get; set; }
+
+        private String _selectedHotel;
+        public String SelectedHotel
+        {
+            get => _selectedHotel;
+            set
+            {
+                _selectedHotel = value;
+                if(_selectedHotel == "Apartments")
+                {
+                    ApartmentFilterCondition ac = new ApartmentFilterCondition();
+                    ac.Show();
+                }
+            }
+        }
+       
+            public User LoggedUser { get; set; }
         public HotelView(User user)
         {
             InitializeComponent();
@@ -42,6 +57,8 @@ namespace Individualan_projekat.View
             _apartmentService = InjectorService.CreateInstance<IApartmentService>();
 
             Apartments = new ObservableCollection<Apartment>(_apartmentService.GetAll());
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             Hotels = new ObservableCollection<String>();
             Hotels.Add("Code");
@@ -86,9 +103,10 @@ namespace Individualan_projekat.View
             set
             {
                 _text = value;
+             
             }
         }
-
+        
         private void Filter(object sender, RoutedEventArgs e)
         {
             List<Apartment> a = new List<Apartment>();

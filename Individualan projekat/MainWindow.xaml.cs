@@ -42,6 +42,7 @@ namespace Individualan_projekat
             _ownerService = InjectorService.CreateInstance<IOwnerService>();
             _guestService = InjectorService.CreateInstance<IGuestService>();
             _administratorService = InjectorService.CreateInstance<IAdministratorService>();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
         }
         private void HotelView(object sender, RoutedEventArgs e)

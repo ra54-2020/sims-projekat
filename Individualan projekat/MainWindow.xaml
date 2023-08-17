@@ -5,37 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="381">
+        Title="Login" Height="300" Width="300">
     <Grid>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65*"/>
-                <ColumnDefinition Width="436"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="150.373"></RowDefinition>
-                <RowDefinition Height="150.627"/>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="0" Margin="0,17,60,2" Grid.ColumnSpan="2" RenderTransformOrigin="0.264,0.523" Grid.RowSpan="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Height="30" Margin="10,35,0,30" HorizontalAlignment="Left" Width="65">Username</Label>
+            <Label Grid.Row="1" Height="30" Margin="10,35,0,30" HorizontalAlignment="Left" Width="65">Password</Label>
+                <TextBox Grid.Row="0" Height="20" Margin="80,35,45,32" Text="{Binding Path=Email}"/>
+            
+                <PasswordBox Grid.Row="1" Margin="80,38,45,32" x:Name="passwordBox" Height="20" Password=""/>
+                
+            <Button Grid.Row="2" Content=" Confirm " IsCancel="True" HorizontalAlignment="Center" Click="LogIn" Width="75" Margin="0,5,0,65"/>
 
-                <Label Grid.Row="0" Grid.Column="0" Height="30" Margin="10,85,0,85" HorizontalAlignment="Left" Width="94">Username</Label>
-                <Label Grid.Row="1" Grid.Column="0" Height="30" Margin="10,10,84,155">Password</Label>
-
-                <TextBox Grid.Row="0" Text="{Binding Path=Email}" Height="30" Grid.ColumnSpan="2" Margin="94,76,58,76"/>
-                <PasswordBox Grid.Row="1" x:Name="passwordBox" Height="30" Grid.ColumnSpan="2" Margin="94,10,58,155" Password=""/>
-                <Button Content=" Confirm " IsCancel="True" HorizontalAlignment="Left" Click="LogIn" RenderTransformOrigin="1.72,-3.142" Width="126" Grid.ColumnSpan="2" Margin="125,126,0,29" Grid.Row="1" />
-            </Grid>
-            <WrapPanel Grid.Row="2"  FlowDirection="LeftToRight" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="90,0,0,0" />
         </Grid>
     </Grid>
 </Window>

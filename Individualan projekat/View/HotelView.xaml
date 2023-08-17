@@ -7,19 +7,24 @@
         mc:Ignorable="d"
         Title="Hotel" Height="450" Width="800">
     <DockPanel>
-            <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="698">
-                
-                <Button Click="SortByStar">Sort by stars</Button>
-            <Button Click="SortByName" Content="Sort by name" Margin="8,0,0,0"/>
-            <ComboBox Width="130" Margin="200,0,0,0" ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}"/>
-            <TextBox Text="{Binding Text}" TextWrapping="Wrap" Width="120" Margin="8,0,0,0"/>
-            <Button Click="Filter" Content="Search" Margin="8,0,0,0"/>
-            <Button Content="Clear" Click="Clear" Margin="8,0,0,0"></Button>
+        <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="698" Height="38">
+            <Button Click="SortByStar" Height="21" Content="Sort by stars"/>
+            <Button Click="SortByName" Height="21" Content="Sort by name" Margin="8,0,0,0"/>
+            <StackPanel Width="130" Margin="200,9,0,0" Height="38">
+                <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="20"/>
+                <TextBlock Text="{Binding ValidationErrors[Hotels]}" Foreground="Red" FontSize="10" Height="15"/>
+            </StackPanel>
+            <StackPanel Width="120" Margin="8,9,0,5">
+                <TextBox Text="{Binding Text}" TextWrapping="Wrap" Height="20"/>
+                <TextBlock Text="{Binding ValidationErrors[Text]}" Foreground="Red" FontSize="10" Height="19"/>
+            </StackPanel>
+            <Button Click="Filter" Content="Search" Margin="8,0,0,0" Height="21"/>
+            <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="21"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False" IsReadOnly="True"
-                  Width="660" Height="300" Margin="51,0,50,51">
+                  Width="658" Height="280" Margin="51,0,50,51">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Code" Binding="{Binding Hotel.Code}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Name" Binding="{Binding Hotel.Name}" Width="120"></DataGridTextColumn>
