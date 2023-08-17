@@ -23,8 +23,9 @@
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"
-                  AutoGenerateColumns="False" IsReadOnly="True"
-                  Width="658" Height="280" Margin="51,0,50,51">
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedApartment}"
+                  Width="658" Height="280" Margin="51,0,50,51"
+                  x:Name="MyDataGrid" MouseDoubleClick="ReservationApartment">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Code" Binding="{Binding Hotel.Code}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Name" Binding="{Binding Hotel.Name}" Width="120"></DataGridTextColumn>

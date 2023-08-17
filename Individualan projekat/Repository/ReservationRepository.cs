@@ -42,21 +42,21 @@ namespace Individualan_projekat.Repository
             Save();
         }
        
-        public Reservation Create(Reservation entity)
+        public void Create(Reservation entity)
         {
             entity.Id = NextId();
             _reservations.Add(entity);
             Save();
             NotifyObservers();
-            return entity;
+       //     return entity;
         }
-        public Reservation Delete(Reservation entity)
+        public void Delete(Reservation entity)
         {
             //_reservations.Remove(entity);
             entity.Deleted = true;
             Save();
             NotifyObservers();
-            return entity;
+        //        return entity;
         }
         public Reservation Get(int id)
         {
@@ -110,15 +110,6 @@ namespace Individualan_projekat.Repository
             Save();
             NotifyObservers();
             return oldEntity;
-        }
-        void IReservationRepository.Create(Reservation reservation)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IReservationRepository.Delete(Reservation reservation)
-        {
-            throw new NotImplementedException();
         }
     }
 }

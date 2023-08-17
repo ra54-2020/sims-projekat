@@ -149,5 +149,26 @@ namespace Individualan_projekat.View
             }
             OnPropertyChanged(nameof(Apartments));
         }
+
+        private Apartment _selectedApartment;
+
+        public Apartment SelectedApartment
+        {
+            get => _selectedApartment;
+            set
+            {
+                _selectedApartment = value;
+            }
+        }
+
+        private void ReservationApartment(object sender, MouseButtonEventArgs e)
+        {
+            
+            if(LoggedUser is Guest)
+            { 
+                ReservationApartmentView rav = new ReservationApartmentView(SelectedApartment);
+                rav.Show();
+            }
+        }
     }
 }
