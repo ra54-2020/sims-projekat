@@ -63,9 +63,9 @@ namespace Individualan_projekat.Service
         {
             _reservationRepository.Delete(reservation);
         }
-        public Reservation Update(Reservation reservation)
+        public void Update(Reservation reservation)
         {
-            return _reservationRepository.Update(reservation);
+            _reservationRepository.Update(reservation);
         }
         public void Subscribe(IObserver observer)
         {
@@ -77,10 +77,6 @@ namespace Individualan_projekat.Service
         }
 
 
-        void IService<Reservation>.Update(Reservation entity)
-        {
-            throw new NotImplementedException();
-        }
 
         public void NotifyObservers()
         {

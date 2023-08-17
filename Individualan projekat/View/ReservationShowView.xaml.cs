@@ -23,9 +23,9 @@ namespace Individualan_projekat.View
     /// </summary>
     public partial class ReservationShowView : Window
     {
-        private String _selectedReservation;
+        private Reservation _selectedReservation;
 
-        public String SelectedReservation
+        public Reservation SelectedReservation
         {
             get => _selectedReservation;
             set
@@ -34,6 +34,7 @@ namespace Individualan_projekat.View
             }
         }
         public ObservableCollection<Reservation> Reservations { get; set; }
+        public ObservableCollection<String> Filters { get; set; }
 
         private readonly IReservationService _reservationService;
 
@@ -44,7 +45,39 @@ namespace Individualan_projekat.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _reservationService = InjectorService.CreateInstance<IReservationService>();
 
+
             Reservations = new ObservableCollection<Reservation>(_reservationService.GetAll().FindAll(r => r.Guest.Id == MainWindow.LogInUser.Id));
+
+            Filters = new ObservableCollection<String>();
+            Filters.Add("Waiting");
+            Filters.Add("Approved");
+            Filters.Add("Rejected");
         }
+
+        private void Filter(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            if(SelectedReservation == null)
+            {
+                return;
+            }
+            SelectedReservation.Status = Model.Enums.ReservationStatus.Canceled;
+            _reservationService.Update(SelectedReservation);
+            Update();
+        }
+
+        public void Update()
+        {
+            Reservations.Clear();
+            foreach(var r in _reservationService.GetAll().FindAll(r => r.Guest.Id == MainWindow.LogInUser.Id))
+            {
+                Reservations.Add(r);
+            }
+        }
+
     }
 }

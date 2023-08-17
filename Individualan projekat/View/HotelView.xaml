@@ -10,16 +10,16 @@
         <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="652" Height="38">
             <Button Click="SortByStar" Height="21" Content="Sort by stars"/>
             <Button Click="SortByName" Height="21" Content="Sort by name" Margin="8,0,0,0"/>
-            <StackPanel Width="130" Margin="194,9,0,0" Height="38">
-                <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="20"/>
+            <StackPanel Width="90" Margin="194,9,0,0" Height="38">
+                <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130"/>
                 <TextBlock Text="{Binding ValidationErrors[Hotels]}" Foreground="Red" FontSize="10" Height="15"/>
             </StackPanel>
             <StackPanel Width="120" Margin="8,9,0,5">
-                <TextBox Text="{Binding Text}" TextWrapping="Wrap" Height="20"/>
+                <TextBox Text="{Binding Text}" TextWrapping="Wrap" Height="22"/>
                 <TextBlock Text="{Binding ValidationErrors[Text]}" Foreground="Red" FontSize="10" Height="19"/>
             </StackPanel>
-            <Button Click="Filter" Content="Search" Margin="8,0,0,0" Height="21"/>
-            <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="21"/>
+            <Button Click="Filter" Content="Search" Margin="8,0,0,0" Height="22"/>
+            <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"

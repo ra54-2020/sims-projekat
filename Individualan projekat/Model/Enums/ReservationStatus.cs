@@ -8,6 +8,6 @@ namespace Individualan_projekat.Model.Enums
 {
     public enum ReservationStatus
     {
-        Approved, Rejected, Waiting, Finished
+        Approved, Rejected, Waiting, Finished, Canceled
     }
 }

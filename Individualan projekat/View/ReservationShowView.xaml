@@ -7,21 +7,22 @@
         mc:Ignorable="d"
         Title="Reservations" Height="450" Width="800">
     <Grid>
-        <WrapPanel  Margin="104,22,98,374" DockPanel.Dock="Top" Height="38">
-            <ComboBox Width="130" Height="20"/>
-            <Button Content="Search" Margin="8,0,0,0"/>
-
+        <WrapPanel  Margin="104,22,98,365" DockPanel.Dock="Top">
+            <ComboBox Width="130" Height="22" ItemsSource="{Binding Filters}"/>
+            <Button Content="Search" Click="Filter" Margin="8,0,0,0"/>
+            <Separator Visibility="Hidden" Width="300"></Separator>
+            <Button Click="Cancel" Width="50">Cancel</Button>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Reservations, UpdateSourceTrigger=PropertyChanged}"
-                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedApartment}"
-                  Width="600" Height="280" Margin="100,77,100,77">
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedReservation, UpdateSourceTrigger=PropertyChanged}"
+                  Width="610" Margin="95,73,95,67">
 
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Apartment" Binding="{Binding Apartment.Name}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Date" Binding="{Binding StartDate}" Width="150"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Status" Binding="{Binding Status}" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Reason" Binding="{Binding Status}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Reason" Binding="{Binding Status}" Width="140"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
