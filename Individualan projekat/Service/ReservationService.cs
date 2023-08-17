@@ -13,63 +13,69 @@ using System.Threading.Tasks;
 
 namespace Individualan_projekat.Service
     {
-        public class ReservationService : IReservationService
+    public class ReservationService : IReservationService
+    {
+        private readonly IReservationRepository _reservationRepository;
+        private readonly IGuestRepository _guestRepository;
+        private readonly IApartmentRepository _apartmentRepository;
+        public ReservationService()
         {
-            private readonly IReservationRepository _reservationRepository;
-            public ReservationService()
+            _reservationRepository = ReservationRepository.GetInstance();
+            _guestRepository = GuestRepository.GetInsatnce();
+            _apartmentRepository = ApartmentRepository.GetInsatnce();
+            BindGuest();
+            BindApartment();
+        }
+
+        private void BindApartment()
+        {
+            foreach(var r in _reservationRepository.GetAll())
             {
-                _reservationRepository = ReservationRepository.GetInstance();
+                r.Apartment = _apartmentRepository.Get(r.IdApartment);
             }
-            public void Save()
+        }
+
+        private void BindGuest()
+        {
+            foreach(var r in _reservationRepository.GetAll())
             {
-                _reservationRepository.Save();
+                r.Guest = _guestRepository.Get(r.IdGuest);
             }
-            public Reservation Get(int id)
-            {
-                return _reservationRepository.Get(id);
-            }
-            public List<Reservation> GetAll()
-            {
-                return _reservationRepository.GetAll();
-            }
-            public void Create(Reservation reservation)
-            {
-                _reservationRepository.Create(reservation);
-            }
-            public void Delete(Reservation reservation)
-            {
-                _reservationRepository.Delete(reservation);
-            }
-            public Reservation Update(Reservation reservation)
-            {
-                return _reservationRepository.Update(reservation);
-            }
-            public void Subscribe(IObserver observer)
-            {
-                _reservationRepository.Subscribe(observer);
-            }
-            public void Unsubscribe(IObserver observer)
-            {
-                _reservationRepository.Unsubscribe(observer);
-            }
-            public List<Reservation> GetGuestReservations(int id)
-            {
-                List<Reservation> list = _reservationRepository.GetAll().FindAll(r => r.IdGuest == id).ToList();
-                if (list == null)
-                {
-                    return new List<Reservation>();
-                }
-                return list;
-            }
-            public List<Reservation> GetOwnerReservations(int id)
-            {
-                List<Reservation> list = _reservationRepository.GetAll().FindAll(r => r.IdGuest == id).ToList();
-                if (list == null)
-                {
-                    return new List<Reservation>();
-                }
-                return list;
-            }
+        }
+
+        public void Save()
+        {
+            _reservationRepository.Save();
+        }
+        public Reservation Get(int id)
+        {
+            return _reservationRepository.Get(id);
+        }
+        public List<Reservation> GetAll()
+        {
+            return _reservationRepository.GetAll();
+        }
+        public void Create(Reservation reservation)
+        {
+            _reservationRepository.Create(reservation);
+        }
+        public void Delete(Reservation reservation)
+        {
+            _reservationRepository.Delete(reservation);
+        }
+        public Reservation Update(Reservation reservation)
+        {
+            return _reservationRepository.Update(reservation);
+        }
+        public void Subscribe(IObserver observer)
+        {
+            _reservationRepository.Subscribe(observer);
+        }
+        public void Unsubscribe(IObserver observer)
+        {
+            _reservationRepository.Unsubscribe(observer);
+        }
+
 
         void IService<Reservation>.Update(Reservation entity)
         {
@@ -80,6 +86,9 @@ namespace Individualan_projekat.Service
         {
             throw new NotImplementedException();
         }
+
+
+    
     }
 
 }

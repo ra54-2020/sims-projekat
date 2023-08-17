@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\App.xaml
-4148699914
+5-821343448
 
-50-139013850
+511384850572
 1942030480316
-MainWindow.xaml;View\ApartmentFilterCondition.xaml;View\HotelView.xaml;View\ReservationApartmentView.xaml;
+MainWindow.xaml;View\ApartmentFilterCondition.xaml;View\HotelView.xaml;View\ReservationApartmentView.xaml;View\ReservationShowView.xaml;
 
 True
 
