@@ -7,10 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\ApartmentEnterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ApartmentFilterCondition.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ApproveReservationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\HotelView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\RejectedReservationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ReservationApartmentView.xaml.cs">
@@ -27,10 +36,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\ApartmentEnterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ApartmentFilterCondition.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\ApproveReservationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\HotelView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RejectedReservationView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ReservationApartmentView.xaml">

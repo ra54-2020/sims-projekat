@@ -15,7 +15,7 @@
             <TextBox TextWrapping="Wrap" Text="{Binding Condition}"  Width="131" Height="22"/>
             <TextBlock Text="{Binding ValidationErrors[Number]}" Foreground="Red" FontSize="10" Height="15"/>
         </StackPanel>
-        <Button Click="Search" Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+        <Button Click="Search" Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="22" Width="46"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,43,0,0" TextWrapping="Wrap" Text="Select option" VerticalAlignment="Top" Height="20" Width="73"/>
         <TextBlock HorizontalAlignment="Left" Margin="31,104,0,0" TextWrapping="Wrap" Text="Enter a number" VerticalAlignment="Top"  Height="20" Width="88"/>
 

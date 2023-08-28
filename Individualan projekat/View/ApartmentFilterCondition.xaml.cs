@@ -25,7 +25,6 @@ namespace Individualan_projekat.View
     public partial class ApartmentFilterCondition : Window
     {
         public ObservableCollection<String> Apartments { get; set; }
-        public object ValidationErrors { get; private set; }
 
         private String _selectedApartment;
         public String SelectedApartment

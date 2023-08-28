@@ -141,5 +141,11 @@ namespace Individualan_projekat.View
             OnPropertyChanged(nameof(Reservations));
             myTextBox.Text = "";
         }
+
+        private void ReservationsClick(object sender, MouseButtonEventArgs e)
+        {
+            ApproveReservationView ar = new ApproveReservationView();
+            ar.Show();
+        }
     }
 }
