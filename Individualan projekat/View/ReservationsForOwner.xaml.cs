@@ -29,6 +29,14 @@ namespace Individualan_projekat.View
 
         private readonly IReservationService _reservationService;
 
+        private readonly IApartmentService _apartmentService;
+        public static ObservableCollection<Apartment> Apartments { get; set; }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public Reservation SelectedReservation
         {
             get => _selectedReservation;
@@ -62,6 +70,17 @@ namespace Individualan_projekat.View
             }
         }
 
+        public String _text;
+        public String Text
+        {
+            get => _text;
+            set
+            {
+                _text = value;
+
+            }
+        }
+
         public ReservationsForOwner()
         {
             InitializeComponent();
@@ -69,9 +88,10 @@ namespace Individualan_projekat.View
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _reservationService = InjectorService.CreateInstance<IReservationService>();
+            _apartmentService = InjectorService.CreateInstance<IApartmentService>();
 
 
-            Reservations = new ObservableCollection<Reservation>(_reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id));
+        Reservations = new ObservableCollection<Reservation>(_reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id));
 
             Filters = new ObservableCollection<String>();
             Filters.Add("Waiting");
@@ -83,17 +103,43 @@ namespace Individualan_projekat.View
             List<Reservation> r = new List<Reservation>();
             if (SelectedFilter == "Waiting")
             {
-                r = _reservationService.GetAll().Where(r => r.Status == Model.Enums.ReservationStatus.Waiting).ToList();
+                r = _reservationService.GetAll().Where(r =>  r.Owner.Id == MainWindow.LogInUser.Id && r.Status == Model.Enums.ReservationStatus.Waiting).ToList();
             }
             else
             {
-                r = _reservationService.GetAll().Where(r => r.Status == Model.Enums.ReservationStatus.Approved).ToList();
+                r = _reservationService.GetAll().Where(r => r.Owner.Id == MainWindow.LogInUser.Id && r.Status == Model.Enums.ReservationStatus.Approved).ToList();
             }
             Reservations.Clear();
             foreach (var res in r)
             {
                 Reservations.Add(res);
             }
+        }
+
+        private void HotelClick(object sender, RoutedEventArgs e)
+        {
+            List<Reservation> a = new List<Reservation>();
+
+            a = _reservationService.GetAll().FindAll(ap => ap.Owner.Id == MainWindow.LogInUser.Id && ap.Apartment.Hotel.Name.ToLower().Contains(Text.ToLower()));
+
+            Reservations.Clear();
+            foreach(Reservation r in a)
+            {
+                Reservations.Add(r);
+            }
+
+        }
+
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            Reservations.Clear();
+            foreach(Reservation r in _reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id))
+            {
+                Reservations.Add(r);
+            }
+     
+            OnPropertyChanged(nameof(Reservations));
+            myTextBox.Text = "";
         }
     }
 }

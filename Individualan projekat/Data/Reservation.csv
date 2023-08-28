@@ -1,6 +1,8 @@
-0,Waiting,1,1,02/08/2023,False,1
-1,Canceled,1,3,03/08/2023,False,2
-2,Canceled,1,5,02/08/2023,False,1
-3,Waiting,1,5,10/08/2023,False,1
-4,Waiting,1,7,05/09/2023,False,1
-5,Waiting,1,4,09/08/2023,False,1
+0,Waiting,1,1,02/08/2023,False,1,bla
+1,Canceled,1,3,03/08/2023,False,2,bla
+2,Canceled,1,5,02/08/2023,False,1,bla
+2,Approved,3,6,01/05/2023,False,3,bla
+2,Approved,2,5,12/03/2023,False,1,bla
+3,Waiting,1,5,10/08/2023,False,3,bla
+4,Waiting,1,7,05/09/2023,False,1,bla
+5,Waiting,1,4,09/08/2023,False,3,bla

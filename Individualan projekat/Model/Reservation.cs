@@ -20,6 +20,9 @@ namespace Individualan_projekat.Model
         public DateTime StartDate { get; set; }
         public ReservationStatus Status { get; internal set; }
         public bool Deleted { get; set; }
+
+        public string Comment { get; set; }
+
         public Reservation()
         {
         }
@@ -44,7 +47,8 @@ namespace Individualan_projekat.Model
                 IdApartment.ToString(),
                 DateHelper.DateToString(StartDate),
                 Deleted.ToString(),
-                IdOwner.ToString()
+                IdOwner.ToString(),
+                Comment
             };
             return csvValues;
         }
@@ -57,6 +61,7 @@ namespace Individualan_projekat.Model
             StartDate = DateHelper.StringToDate(values[4]);
             Deleted = Convert.ToBoolean(values[5]);
             IdOwner = Convert.ToInt32(values[6]);
+            Comment = values[7];
         }
     }
 }
