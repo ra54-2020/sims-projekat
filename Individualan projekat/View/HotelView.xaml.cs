@@ -68,6 +68,16 @@ namespace Individualan_projekat.View
             Hotels.Add("Apartments");
 
             LoggedUser = user;
+
+            if (LoggedUser is Owner)
+            {
+                ReservationButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ReservationButton.Visibility = Visibility.Collapsed;
+            }
+            OnPropertyChanged(nameof(Visibility));
         }
         protected void OnPropertyChanged(string propertyName)
         {
@@ -120,7 +130,7 @@ namespace Individualan_projekat.View
             }
             else if(SelectedHotel == "Construction year")
             {
-                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.ConstructionYear == Convert.ToInt32(Text));
+                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.ConstructionYear.ToString().ToLower().Contains(Text));
             }
             else if(SelectedHotel == "Stars number")
             {
@@ -148,6 +158,7 @@ namespace Individualan_projekat.View
                 Apartments.Add(ap);
             }
             OnPropertyChanged(nameof(Apartments));
+            myTextBox.Text = "";
         }
 
         private Apartment _selectedApartment;
@@ -169,6 +180,13 @@ namespace Individualan_projekat.View
                 ReservationApartmentView rav = new ReservationApartmentView(SelectedApartment);
                 rav.Show();
             }
+        }
+
+
+        private void ShowReservations(object sender, RoutedEventArgs e)
+        {
+            ReservationsForOwner rfo = new ReservationsForOwner();
+            rfo.Show();
         }
     }
 }

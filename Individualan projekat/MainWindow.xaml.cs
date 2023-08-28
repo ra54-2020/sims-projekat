@@ -63,8 +63,6 @@ namespace Individualan_projekat
             LogInUser = _ownerService.GetByEmailAndPassword(Email, Password);
             if (LogInUser != null)
             {
-                //OwnerAccountView ownerAccount = new OwnerAccountView(LogInUser);
-                //ownerAccount.Show();
                 HotelView view = new HotelView(LogInUser);
                 view.Show();
                 Close();
@@ -73,8 +71,6 @@ namespace Individualan_projekat
             LogInUser = _guestService.GetByEmailAndPassword(Email, Password);
             if (LogInUser != null)
             {
-                //GuestAccount guestAccount = new GuestAccount(LogInUser);
-                //guestAccount.Show();
                 HotelView view = new HotelView(LogInUser);
                 view.Show();
                 Close();
@@ -83,8 +79,6 @@ namespace Individualan_projekat
             LogInUser = _administratorService.GetByEmailAndPassword(Email, Password);
             if (LogInUser != null)
             {
-                //AdministratorAccountView administratorAccount = new AdministratorAccountView(LogInUser);
-                //administratorAccount.Show();
                 HotelView view = new HotelView(LogInUser);
                 view.Show();
                 Close();

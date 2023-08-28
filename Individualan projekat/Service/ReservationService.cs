@@ -18,13 +18,16 @@ namespace Individualan_projekat.Service
         private readonly IReservationRepository _reservationRepository;
         private readonly IGuestRepository _guestRepository;
         private readonly IApartmentRepository _apartmentRepository;
+        private readonly IOwnerRepository _ownerRepository;
         public ReservationService()
         {
             _reservationRepository = ReservationRepository.GetInstance();
             _guestRepository = GuestRepository.GetInsatnce();
             _apartmentRepository = ApartmentRepository.GetInsatnce();
+            _ownerRepository = OwnerRepository.GetInsatnce();
             BindGuest();
             BindApartment();
+            BindOwner();
         }
 
         private void BindApartment()
@@ -35,6 +38,13 @@ namespace Individualan_projekat.Service
             }
         }
 
+        private void BindOwner()
+        {
+            foreach(var r in _reservationRepository.GetAll())
+            {
+                r.Owner = _ownerRepository.Get(r.IdOwner);
+            }
+        }
         private void BindGuest()
         {
             foreach(var r in _reservationRepository.GetAll())
@@ -76,15 +86,6 @@ namespace Individualan_projekat.Service
             _reservationRepository.Unsubscribe(observer);
         }
 
-
-
-        public void NotifyObservers()
-        {
-            throw new NotImplementedException();
-        }
-
-
-    
     }
 
 }

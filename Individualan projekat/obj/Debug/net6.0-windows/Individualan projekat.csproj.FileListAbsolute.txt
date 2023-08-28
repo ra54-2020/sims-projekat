@@ -68,3 +68,5 @@ C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.pdb
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\Individualan projekat.genruntimeconfig.cache
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\ref\Individualan projekat.dll
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationsForOwner.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationsForOwner.baml

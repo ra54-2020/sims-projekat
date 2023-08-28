@@ -52,6 +52,8 @@ namespace Individualan_projekat.View
             reservation.Guest = (Guest)MainWindow.LogInUser;
             reservation.Apartment = SelectedApartment;
             reservation.IdApartment = SelectedApartment.Id;
+            reservation.Owner = SelectedApartment.Hotel.Owner;
+            reservation.IdOwner = SelectedApartment.Hotel.OwnerId;
             _reservationService.Create(reservation);
             
             Close();

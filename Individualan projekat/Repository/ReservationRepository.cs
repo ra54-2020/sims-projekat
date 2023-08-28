@@ -31,32 +31,21 @@ namespace Individualan_projekat.Repository
             _serializer = new Serializer<Reservation>();
             _reservations = _serializer.FromCSV(_filePath);
             _observers = new List<IObserver>();
-            SetStatus();
         }
-        public void SetStatus()
-        {
-            foreach (Reservation reservation in _reservations)
-            {
-                //Kako popuniti ovu petlju?
-            }
-            Save();
-        }
-       
+           
+
         public void Create(Reservation entity)
         {
             entity.Id = NextId();
             _reservations.Add(entity);
             Save();
             NotifyObservers();
-       //     return entity;
         }
         public void Delete(Reservation entity)
         {
-            //_reservations.Remove(entity);
             entity.Deleted = true;
             Save();
             NotifyObservers();
-        //        return entity;
         }
         public Reservation Get(int id)
         {

@@ -13,6 +13,8 @@ namespace Individualan_projekat.Model
         public int Id { get; set; }
         public int IdGuest { get; set; }
         public Guest Guest { get; set; }
+        public int IdOwner { get; set; }
+        public Owner Owner { get; set; }
         public Apartment Apartment { get; set; }
         public int IdApartment { get; set; }
         public DateTime StartDate { get; set; }
@@ -21,11 +23,13 @@ namespace Individualan_projekat.Model
         public Reservation()
         {
         }
-        public Reservation(Guest guest, ReservationStatus status, Apartment apartment, DateTime startDate)
+        public Reservation(Guest guest, Owner owner, ReservationStatus status, Apartment apartment, DateTime startDate)
         {
             Status = status;
             IdGuest = guest.Id;
             this.Guest = guest;
+            IdOwner = owner.Id;
+            this.Owner = owner;
             IdApartment = apartment.Id;
             this.Apartment = apartment;
             this.StartDate = startDate;
@@ -39,7 +43,8 @@ namespace Individualan_projekat.Model
                 IdGuest.ToString(),
                 IdApartment.ToString(),
                 DateHelper.DateToString(StartDate),
-                Deleted.ToString()
+                Deleted.ToString(),
+                IdOwner.ToString()
             };
             return csvValues;
         }
@@ -51,6 +56,7 @@ namespace Individualan_projekat.Model
             IdApartment = Convert.ToInt32(values[3]);
             StartDate = DateHelper.StringToDate(values[4]);
             Deleted = Convert.ToBoolean(values[5]);
+            IdOwner = Convert.ToInt32(values[6]);
         }
     }
 }

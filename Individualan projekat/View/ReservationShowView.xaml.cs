@@ -4,6 +4,7 @@ using Individualan_projekat.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,10 @@ namespace Individualan_projekat.View
     /// <summary>
     /// Interaction logic for ReservationShowView.xaml
     /// </summary>
-    public partial class ReservationShowView : Window
+    public partial class ReservationShowView : Window, INotifyPropertyChanged
     {
         private Reservation _selectedReservation;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Reservation SelectedReservation
         {
@@ -33,10 +35,28 @@ namespace Individualan_projekat.View
                 _selectedReservation = value;
             }
         }
-        public ObservableCollection<Reservation> Reservations { get; set; }
+        private ObservableCollection<Reservation> _reservations;
+        public ObservableCollection<Reservation> Reservations
+        {
+            get => _reservations;
+            set
+            {
+                _reservations = value;
+            }
+        }
         public ObservableCollection<String> Filters { get; set; }
-
+       
         private readonly IReservationService _reservationService;
+
+        private string _selectedFilter;
+        public string SelectedFilter
+        {
+            get => _selectedFilter;
+            set
+            {
+                _selectedFilter = value;
+            }
+        }
 
         public ReservationShowView()
         {
@@ -56,6 +76,24 @@ namespace Individualan_projekat.View
 
         private void Filter(object sender, RoutedEventArgs e)
         {
+            List<Reservation> r = new List<Reservation>();
+            if(SelectedFilter == "Waiting")
+            {
+                r = _reservationService.GetAll().Where(r => r.Status == Model.Enums.ReservationStatus.Waiting).ToList();
+            }
+            else if(SelectedFilter == "Approved")
+            {
+                r = _reservationService.GetAll().Where(r => r.Status == Model.Enums.ReservationStatus.Approved).ToList();
+            }
+            else
+            {
+                r = _reservationService.GetAll().Where(r => r.Status == Model.Enums.ReservationStatus.Rejected).ToList();
+            }
+            Reservations.Clear();
+            foreach (var res in r)
+            {
+                Reservations.Add(res);
+            }
 
         }
 
