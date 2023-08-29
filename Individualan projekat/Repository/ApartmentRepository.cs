@@ -107,7 +107,9 @@ namespace Individualan_projekat.Repository
 
         void IApartmentRepository.Create(Apartment entity)
         {
-            throw new NotImplementedException();
+            entity.Id = NextId();
+            _apartments.Add(entity);
+            Save();
         }
 
         void IApartmentRepository.Delete(Apartment entity)

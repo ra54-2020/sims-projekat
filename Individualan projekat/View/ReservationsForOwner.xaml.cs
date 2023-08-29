@@ -22,7 +22,7 @@ namespace Individualan_projekat.View
     /// <summary>
     /// Interaction logic for ReservationsForOwner.xaml
     /// </summary>
-    public partial class ReservationsForOwner :Window, INotifyPropertyChanged
+    public partial class ReservationsForOwner : Window, INotifyPropertyChanged
     {
         private Reservation _selectedReservation;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -42,15 +42,15 @@ namespace Individualan_projekat.View
             get => _selectedReservation;
             set
             {
-                if(value != _selectedReservation)
+                if (value != _selectedReservation)
                 {
                     _selectedReservation = value;
                 }
             }
         }
 
-        private ObservableCollection<Reservation> _reservations;
-        public ObservableCollection<Reservation> Reservations
+        private static ObservableCollection<Reservation> _reservations;
+        public static ObservableCollection<Reservation> Reservations
         {
             get => _reservations;
             set
@@ -91,7 +91,7 @@ namespace Individualan_projekat.View
             _apartmentService = InjectorService.CreateInstance<IApartmentService>();
 
 
-        Reservations = new ObservableCollection<Reservation>(_reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id));
+            Reservations = new ObservableCollection<Reservation>(_reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id));
 
             Filters = new ObservableCollection<String>();
             Filters.Add("Waiting");
@@ -103,7 +103,7 @@ namespace Individualan_projekat.View
             List<Reservation> r = new List<Reservation>();
             if (SelectedFilter == "Waiting")
             {
-                r = _reservationService.GetAll().Where(r =>  r.Owner.Id == MainWindow.LogInUser.Id && r.Status == Model.Enums.ReservationStatus.Waiting).ToList();
+                r = _reservationService.GetAll().Where(r => r.Owner.Id == MainWindow.LogInUser.Id && r.Status == Model.Enums.ReservationStatus.Waiting).ToList();
             }
             else
             {
@@ -123,7 +123,7 @@ namespace Individualan_projekat.View
             a = _reservationService.GetAll().FindAll(ap => ap.Owner.Id == MainWindow.LogInUser.Id && ap.Apartment.Hotel.Name.ToLower().Contains(Text.ToLower()));
 
             Reservations.Clear();
-            foreach(Reservation r in a)
+            foreach (Reservation r in a)
             {
                 Reservations.Add(r);
             }
@@ -133,19 +133,31 @@ namespace Individualan_projekat.View
         private void Clear(object sender, RoutedEventArgs e)
         {
             Reservations.Clear();
-            foreach(Reservation r in _reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id))
+            foreach (Reservation r in _reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id))
             {
                 Reservations.Add(r);
             }
-     
+
             OnPropertyChanged(nameof(Reservations));
             myTextBox.Text = "";
         }
 
+
         private void ReservationsClick(object sender, MouseButtonEventArgs e)
         {
-            ApproveReservationView ar = new ApproveReservationView();
+            if(SelectedReservation.Status != Model.Enums.ReservationStatus.Waiting)
+            {
+                MessageBox.Show("Your reservation has been processed", "Notification");
+                return;
+            }
+            ApproveReservationView ar = new ApproveReservationView(SelectedReservation);
             ar.Show();
+        }
+
+        private void CreateApartment(object sender, RoutedEventArgs e)
+        {
+            ApartmentEnterView aew = new ApartmentEnterView();
+            aew.Show();
         }
     }
 }

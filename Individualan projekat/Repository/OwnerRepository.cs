@@ -4,6 +4,7 @@ using Individualan_projekat.RepositoryInterfaces;
 using Individualan_projekat.Serializer;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Individualan_projekat.Repository
 {
@@ -46,6 +47,26 @@ namespace Individualan_projekat.Repository
             throw new NotImplementedException();
         }
 
+        public void Create(Owner owner)
+        {
+            owner.Id = NextId();
+            _owners.Add(owner);
+            Save();
+        }
+
+        public int NextId()
+        {
+            if (_owners.Count == 0) return 0;
+            int newId = _owners[_owners.Count() - 1].Id + 1;
+            foreach (Owner a in _owners)
+            {
+                if (newId == a.Id)
+                {
+                    newId++;
+                }
+            }
+            return newId;
+        }
     }
 
 }

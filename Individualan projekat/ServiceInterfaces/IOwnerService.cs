@@ -6,5 +6,7 @@ namespace Individualan_projekat.ServiceInterfaces
     public interface IOwnerService : IService<Owner>
     {
         Owner GetByEmailAndPassword(string email, string password);
+
+        void Create(Owner owner);
     }
 }

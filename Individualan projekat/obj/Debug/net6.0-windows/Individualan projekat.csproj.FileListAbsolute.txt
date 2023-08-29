@@ -71,8 +71,8 @@ C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationsForOwner.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ReservationsForOwner.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApproveReservationView.g.cs
-C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\RejectedReservationView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApproveReservationView.baml
-C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\RejectedReservationView.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentEnterView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentEnterView.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerCreateView.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerCreateView.baml

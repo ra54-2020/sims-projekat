@@ -14,10 +14,22 @@ namespace Individualan_projekat.Service
     public class HotelService : IHotelService
     {
         private readonly IHotelRepository _hotelRepository;
+        private readonly IOwnerRepository _ownerRepository;
         public HotelService()
         {
             _hotelRepository = HotelRepository.GetInsatnce();
+            _ownerRepository = OwnerRepository.GetInsatnce();
+            BindOwner();
         }
+
+        private void BindOwner()
+        {
+            foreach(var r in GetAll())
+            {
+                r.Owner = _ownerRepository.Get(r.OwnerId);
+            }
+        }
+
         public Hotel Get(int id)
         {
             return _hotelRepository.Get(id);

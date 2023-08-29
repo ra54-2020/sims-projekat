@@ -188,5 +188,11 @@ namespace Individualan_projekat.View
             ReservationsForOwner rfo = new ReservationsForOwner();
             rfo.Show();
         }
+
+        private void CreateApartment(object sender, RoutedEventArgs e)
+        {
+            ApartmentEnterView a = new ApartmentEnterView();
+            a.Show();
+        }
     }
 }

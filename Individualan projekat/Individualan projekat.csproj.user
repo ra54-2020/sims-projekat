@@ -19,7 +19,7 @@
     <Compile Update="View\HotelView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\RejectedReservationView.xaml.cs">
+    <Compile Update="View\OwnerCreateView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ReservationApartmentView.xaml.cs">
@@ -48,7 +48,7 @@
     <Page Update="View\HotelView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\RejectedReservationView.xaml">
+    <Page Update="View\OwnerCreateView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ReservationApartmentView.xaml">

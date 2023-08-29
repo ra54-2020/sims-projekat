@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Hotel" Height="450" Width="800">
     <DockPanel>
-        <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="652" Height="38">
+        <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="652" Height="55">
             <Button Click="SortByStar" Height="22" Content="Sort by stars"/>
             <Button Click="SortByName" Height="22" Content="Sort by name" Margin="8,0,0,0"/>
 
@@ -15,6 +15,9 @@
             <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="0,1,8,0"/>
             <Button Click="Filter" Content="Search" Height="22" Width="50"/>
             <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
+
+            <Button  x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" />
+            <Button  x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" />
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"
@@ -29,6 +32,7 @@
                 <DataGridTextColumn  Header="Stars number" Binding="{Binding Hotel.StarsNumber}" Width="110"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button  x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="0,-40,582,0"/>
+        <Button Content="Button" Width="68" Height="19"/>
+
     </DockPanel>
 </Window>

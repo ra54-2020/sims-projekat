@@ -47,6 +47,11 @@ namespace Individualan_projekat.Service
         {
             throw new NotImplementedException();
         }
+
+        public void Create(Owner owner)
+        {
+            _ownerRepository.Create(owner);
+        }
     }
 }
 

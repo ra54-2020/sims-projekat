@@ -14,18 +14,19 @@
             <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="08,0,8,0"/>
             <Button Click="HotelClick" Content="Search" Height="22" Width="50"/>
             <Button Click="Clear" Content="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
+            
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Reservations, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedReservation, UpdateSourceTrigger=PropertyChanged}"
-                  Width="613" Margin="90,73,80,67" MouseDoubleClick="ReservationsClick">
+                  Width="613" Margin="90,73,80,67" MouseDoubleClick="ReservationsClick" >
 
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Hotel" Binding="{Binding Apartment.Hotel.Name}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Apartment" Binding="{Binding Apartment.Name}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Date" Binding="{Binding StartDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Status" Binding="{Binding Status}" Width="130"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Reason" Width="115"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Reason" Binding="{Binding Comment}" Width="115"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

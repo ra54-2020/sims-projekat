@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat.View"
         mc:Ignorable="d"
-        Title="Reservation" Height="250" Width="300">
+        Title="Reservation" Height="300" Width="350">
     <Grid>
         <StackPanel Margin="29,26,29,26">
             <TextBlock Text="Approve or reject reservation" HorizontalAlignment="Center" Margin="0,40,0,0"/>

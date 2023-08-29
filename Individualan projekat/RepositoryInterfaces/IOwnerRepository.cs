@@ -7,5 +7,7 @@ namespace Individualan_projekat.RepositoryInterfaces
     {
         void Save();
         Owner Update(Owner entity);
+
+        void Create(Owner owner);
     }
 }

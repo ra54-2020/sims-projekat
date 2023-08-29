@@ -1,4 +1,5 @@
-﻿using Individualan_projekat.ServiceInterfaces;
+﻿using Individualan_projekat.Model;
+using Individualan_projekat.ServiceInterfaces;
 using Individualan_projekat.Util;
 using System;
 using System.Collections.Generic;
@@ -22,39 +23,47 @@ namespace Individualan_projekat.View
     /// </summary>
     public partial class ApproveReservationView : Window
     {
-        public ObservableCollection<String> Apartments { get; set; }
-
-        private String _selectedApartment;
-        public String SelectedApartment
-        {
-            get => _selectedApartment;
-            set
-            {
-                _selectedApartment = value;
-            }
-        }
-        private readonly IApartmentService _apartmentService;
-        public ApproveReservationView()
+        public Reservation SelectedReservation { get; set; }
+        
+        private readonly IReservationService _reservationService;
+        public ApproveReservationView(Reservation r)
         {
             InitializeComponent();
             this.DataContext = this;
 
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            _apartmentService = InjectorService.CreateInstance<IApartmentService>();
+            SelectedReservation = r;
 
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            _reservationService = InjectorService.CreateInstance<IReservationService>();
+
+        }
+        public void Update()
+        {
+            ReservationsForOwner.Reservations.Clear();
+            foreach (Reservation r in _reservationService.GetAll().FindAll(r => r.Owner.Id == MainWindow.LogInUser.Id))
+            {
+                ReservationsForOwner.Reservations.Add(r);
+            }
         }
 
         private void ApproveReservation(object sender, RoutedEventArgs e)
         {
-            ReservationsForOwner rfo = new ReservationsForOwner();
-            rfo.Show();
+            SelectedReservation.Status = Model.Enums.ReservationStatus.Approved;
+            _reservationService.Update(SelectedReservation);
+            Update();
+
+
             this.Close();
         }
 
+
         private void RejectReservation(object sender, RoutedEventArgs e)
         {
-            RejectedReservationView rr = new RejectedReservationView();
-            rr.Show();
+            SelectedReservation.Status = Model.Enums.ReservationStatus.Rejected;
+            SelectedReservation.Comment = "The apartment is available on this application, so the guest could make a reservation, but someone made an appointment for the same apartment over the phone, and the owner still cannot confirm the reservation.";
+            _reservationService.Update(SelectedReservation);
+            Update();
+
             this.Close();
         }
     }
