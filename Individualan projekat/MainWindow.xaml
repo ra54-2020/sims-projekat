@@ -14,13 +14,15 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Height="30" Margin="10,35,0,30" HorizontalAlignment="Left" Width="65">Username</Label>
+            <Label Grid.Row="0" Height="30" Margin="10,35,0,30" HorizontalAlignment="Left" Width="65">Email</Label>
             <Label Grid.Row="1" Height="30" Margin="10,35,0,30" HorizontalAlignment="Left" Width="65">Password</Label>
-                <TextBox Grid.Row="0" Height="20" Margin="80,35,45,32" Text="{Binding Path=Email}"/>
-            
-                <PasswordBox Grid.Row="1" Margin="80,38,45,32" x:Name="passwordBox" Height="20" Password=""/>
-                
-            <Button Grid.Row="2" Content=" Confirm " IsCancel="True" HorizontalAlignment="Center" Click="LogIn" Width="75" Margin="0,5,0,65"/>
+            <TextBox x:Name="emailBox" Grid.Row="0" Height="20" Margin="80,35,45,32" Text="{Binding Path=Email}"/>
+            <TextBlock Grid.Row="0" Margin="80,65,45,0" x:Name="emailErrorText" Foreground="Red" Visibility="Collapsed"/>
+
+            <PasswordBox Grid.Row="1" Margin="80,38,45,32" x:Name="passwordBox" Height="20" Password=""/>
+            <TextBlock Grid.Row="1" Margin="80,65,45,0" x:Name="passwordErrorText" Foreground="Red" Visibility="Collapsed"/>
+
+            <Button Grid.Row="2" Content=" Confirm " IsCancel="True" HorizontalAlignment="Center" Click="LogIn" Width="74" Margin="0,20,0,50"/>
 
         </Grid>
     </Grid>

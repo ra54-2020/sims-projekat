@@ -8,10 +8,11 @@
         Title="Reservations" Height="450" Width="800">
     <Grid>
         <WrapPanel  Margin="90,22,90,365" DockPanel.Dock="Top">
-            <ComboBox Width="130" Height="22" ItemsSource="{Binding Filters}" SelectedItem="{Binding SelectedFilter}"/>
-            <Button Content="Search" Click="Filter" Width="50" Margin="8,0,0,0"/>
+            <ComboBox x:Name="myComboBox" Width="130" Height="22" ItemsSource="{Binding Filters}" SelectedItem="{Binding SelectedFilter}"/>
+            <Button Content="Search" Click="Filter" Width="50" Height="22" Margin="8,0,0,0"/>
+            <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
             <Separator Visibility="Hidden" Width="262"></Separator>
-            <TextBlock TextWrapping="Wrap" Text="Cancel reservation" Height="20" Margin="0,3,0,0" />
+            <TextBlock TextWrapping="Wrap" Text="Cancel reservation" Height="20" Margin="-65,3,0,0" />
             <Button Click="Cancel" Content="Cancel" Margin="8,0,0,0" Width="50"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
@@ -21,10 +22,10 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Hotel" Binding="{Binding Apartment.Hotel.Name}" Width="130"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Apartment" Binding="{Binding Apartment.Name}" Width="130"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Date" Binding="{Binding StartDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="130"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Status" Binding="{Binding Status}" Width="130"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Reason" Binding="{Binding Status}" Width="130"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Apartment" Binding="{Binding Apartment.Name}" Width="110"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Date" Binding="{Binding StartDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Status" Binding="{Binding Status}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Reason" Binding="{Binding Status}" Width="125"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

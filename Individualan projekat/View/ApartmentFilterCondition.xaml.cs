@@ -1,7 +1,6 @@
 ﻿using Individualan_projekat.Model;
 using Individualan_projekat.ServiceInterfaces;
 using Individualan_projekat.Util;
-using Individualan_projekat.Validation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -7,22 +7,23 @@
         mc:Ignorable="d"
         Title="Hotel" Height="450" Width="800">
     <DockPanel>
-        <WrapPanel  Margin="20" DockPanel.Dock="Top" Width="652" Height="55">
+        <WrapPanel  Margin="74,10,70,0" DockPanel.Dock="Top" Width="646" Height="55">
             <Button Click="SortByStar" Height="22" Content="Sort by stars"/>
             <Button Click="SortByName" Height="22" Content="Sort by name" Margin="8,0,0,0"/>
 
-            <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="125,1,8,0"/>
+            <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="105,1,8,0"/>
             <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="0,1,8,0"/>
             <Button Click="Filter" Content="Search" Height="22" Width="50"/>
             <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
 
-            <Button  x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" />
-            <Button  x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" />
+            <Button  x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" Margin="0,8,0,0"/>
+            <Button  x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="8,8,0,0"/>
+            <Button x:Name="OwnerCreateButton" Click="AddOwner" Content="Add Owner" Width="68" Height="22" Margin="563,-25,0,0"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedApartment}"
-                  Width="658" Height="280" Margin="51,0,50,51"
+                  Width="658" Height="314" Margin="50,5,50,21"
                   x:Name="MyDataGrid" MouseDoubleClick="ReservationApartment">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Code" Binding="{Binding Hotel.Code}" Width="120"></DataGridTextColumn>
@@ -32,7 +33,7 @@
                 <DataGridTextColumn  Header="Stars number" Binding="{Binding Hotel.StarsNumber}" Width="110"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Button" Width="68" Height="19"/>
+        <Button Click="SignOutButton" Content="Sign out" Height="22" Width="50" Margin="700,-95,0,0"/>
 
     </DockPanel>
 </Window>

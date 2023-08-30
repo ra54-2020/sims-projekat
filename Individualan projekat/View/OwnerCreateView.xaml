@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat.View"
         mc:Ignorable="d"
-        Title="Owner Create" Height="300" Width="300">
+        Title="Owner Create" Height="350" Width="300">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="15,10,0,0" TextWrapping="Wrap" Text="JMBG" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="15,50,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15,50,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="15,90,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="15,130,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="15,170,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="15,210,0,0" TextWrapping="Wrap" Text="Phone number" VerticalAlignment="Top"/>
 
-        <TextBox Text="{Binding JMBG}" HorizontalAlignment="Left" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox Text="{Binding Email}" HorizontalAlignment="Left" Margin="114,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox Text="{Binding Password}" HorizontalAlignment="Left" Margin="114,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="114,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox Text="{Binding Surname}" HorizontalAlignment="Left" Margin="114,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox Text="{Binding PhoneNumber}" HorizontalAlignment="Left" Margin="114,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
+        <TextBox Text="{Binding JMBG}" HorizontalAlignment="Left" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding Email}" HorizontalAlignment="Left" Margin="114,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding Password}" HorizontalAlignment="Left" Margin="114,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="114,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding Surname}" HorizontalAlignment="Left" Margin="114,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding PhoneNumber}" HorizontalAlignment="Left" Margin="114,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
         <Button Click="CreateOwner" Content="Create" HorizontalAlignment="Left" Margin="205,253,0,0" VerticalAlignment="Top" Height="22" Width="45"/>
 
 

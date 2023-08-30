@@ -117,5 +117,14 @@ namespace Individualan_projekat.View
             }
         }
 
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            Reservations.Clear();
+            foreach (var r in _reservationService.GetAll())
+            {
+                Reservations.Add(r);
+            }
+            myComboBox.Text = "";
+        }
     }
 }

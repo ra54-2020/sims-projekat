@@ -70,5 +70,7 @@ namespace Individualan_projekat.View
 
             this.Close();
         }
+        
+
     }
 }

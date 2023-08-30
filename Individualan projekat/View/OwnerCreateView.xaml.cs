@@ -28,6 +28,7 @@ namespace Individualan_projekat.View
             InitializeComponent();
             this.DataContext = this;
 
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             _ownerService = InjectorService.CreateInstance<IOwnerService>();
         }
@@ -41,6 +42,12 @@ namespace Individualan_projekat.View
 
         private void CreateOwner(object sender, RoutedEventArgs e)
         {
+            var tmp = _ownerService.GetAll().Find(o => o.Email == Email || o.Jmbg == JMBG);
+            if(tmp != null)
+            {
+                MessageBox.Show("Try again", "Alert");
+                return;
+            }
             Owner o = new Owner();
             o.Jmbg = JMBG;
             o.Email = Email;

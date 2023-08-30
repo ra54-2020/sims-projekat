@@ -72,10 +72,20 @@ namespace Individualan_projekat.View
             if (LoggedUser is Owner)
             {
                 ReservationButton.Visibility = Visibility.Visible;
+                CreateApartmentButton.Visibility = Visibility.Visible;
+                OwnerCreateButton.Visibility = Visibility.Collapsed;
+            }
+            else if(LoggedUser is Guest)
+            {
+                ReservationButton.Visibility = Visibility.Collapsed;
+                CreateApartmentButton.Visibility = Visibility.Collapsed;
+                OwnerCreateButton.Visibility = Visibility.Collapsed;
             }
             else
             {
                 ReservationButton.Visibility = Visibility.Collapsed;
+                CreateApartmentButton.Visibility = Visibility.Collapsed;
+                OwnerCreateButton.Visibility = Visibility.Visible;
             }
             OnPropertyChanged(nameof(Visibility));
         }
@@ -193,6 +203,32 @@ namespace Individualan_projekat.View
         {
             ApartmentEnterView a = new ApartmentEnterView();
             a.Show();
+        }
+
+        private void AddOwner(object sender, RoutedEventArgs e)
+        {
+            OwnerCreateView o = new OwnerCreateView();
+            o.Show();
+        }
+
+        private void SignOutButton(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                 "   Are you sure you want to log out?\n\n",
+                 "Exit",
+                 MessageBoxButton.YesNo);
+
+            if(result == MessageBoxResult.Yes)
+            {
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }

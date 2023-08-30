@@ -12,7 +12,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="45,131,0,0" TextWrapping="Wrap" Text="Guest number" VerticalAlignment="Top" Width="84"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,171,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="67"/>
 
-        <Button Click="CreateAppartment" Content="Create" HorizontalAlignment="Left" Margin="260,238,0,0" VerticalAlignment="Top" Height="22" Width="46"/>
+        <Button Click="CreateAppartment" Content="Create" HorizontalAlignment="Left" Margin="260,229,0,0" VerticalAlignment="Top" Height="22" Width="46"/>
 
         <TextBox Text="{Binding NameA}" HorizontalAlignment="Left" Margin="143,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
         <TextBox Text="{Binding RoomNumber}" HorizontalAlignment="Left" Margin="143,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
