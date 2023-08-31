@@ -29,6 +29,9 @@ namespace Individualan_projekat.View
         {
             InitializeComponent();
             this.DataContext = this;
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             SelectedHotel = hotel;
             _hotelService = InjectorService.CreateInstance<IHotelService>();
         }

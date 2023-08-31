@@ -49,7 +49,7 @@ namespace Individualan_projekat.Service
 
         public void Create(Hotel hotel)
         {
-            throw new NotImplementedException();
+            _hotelRepository.Create(hotel);
         }
 
         public List<Apartment> GetAllApartments()

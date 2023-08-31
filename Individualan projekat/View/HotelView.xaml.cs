@@ -73,19 +73,22 @@ namespace Individualan_projekat.View
             {
                 ReservationButton.Visibility = Visibility.Visible;
                 CreateApartmentButton.Visibility = Visibility.Visible;
-                OwnerCreateButton.Visibility = Visibility.Collapsed;
+                ApproveHotelButton.Visibility = Visibility.Visible;
+                AddHotelButton.Visibility = Visibility.Collapsed;
             }
             else if(LoggedUser is Guest)
             {
                 ReservationButton.Visibility = Visibility.Collapsed;
                 CreateApartmentButton.Visibility = Visibility.Collapsed;
-                OwnerCreateButton.Visibility = Visibility.Collapsed;
+                ApproveHotelButton.Visibility= Visibility.Collapsed;
+                AddHotelButton.Visibility = Visibility.Collapsed;
             }
             else
             {
                 ReservationButton.Visibility = Visibility.Collapsed;
                 CreateApartmentButton.Visibility = Visibility.Collapsed;
-                OwnerCreateButton.Visibility = Visibility.Visible;
+                ApproveHotelButton.Visibility = Visibility.Collapsed;
+                AddHotelButton.Visibility = Visibility.Visible;
             }
             OnPropertyChanged(nameof(Visibility));
         }
@@ -159,7 +162,6 @@ namespace Individualan_projekat.View
             OnPropertyChanged(nameof(Apartments));
 
         }
-
         private void Clear(object sender, RoutedEventArgs e)
         {
             Apartments.Clear();
@@ -202,12 +204,6 @@ namespace Individualan_projekat.View
         {
             ApartmentEnterView a = new ApartmentEnterView();
             a.Show();
-        }
-
-        private void AddOwner(object sender, RoutedEventArgs e)
-        {
-            OwnerCreateView o = new OwnerCreateView();
-            o.Show();
         }
 
         private void SignOutButton(object sender, RoutedEventArgs e)

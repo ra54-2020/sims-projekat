@@ -63,6 +63,7 @@ namespace Individualan_projekat.View
             o.PhoneNumber = PhoneNumber;
             _ownerService.Create(o);
             AllUsersView.Users.Add(o);
+            this.Close();
         }
     }
 }

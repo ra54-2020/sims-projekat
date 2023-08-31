@@ -26,9 +26,9 @@ namespace Individualan_projekat.Service
         {
             return _guestRepository.GetAll();
         }
-        public Guest Update(Guest entity)
+        public void Update(Guest entity)
         {
-            return _guestRepository.Update(entity);
+            _guestRepository.Update(entity);
         }
         public void Save()
         {

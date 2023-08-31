@@ -44,23 +44,6 @@ namespace Individualan_projekat.Repository
         {
             return _guests;
         }
-        public void Subscribe(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
-
-        public void Unsubscribe(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
-
-        public void NotifyObservers()
-        {
-            foreach (var o in _observers)
-            {
-                o.Update();
-            }
-        }
         public void Save()
         {
             _serializer.ToCSV(_filePath, _guests);

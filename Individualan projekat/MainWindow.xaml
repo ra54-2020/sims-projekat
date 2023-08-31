@@ -21,7 +21,7 @@
 
             <PasswordBox Grid.Row="1" Margin="80,38,45,32" x:Name="passwordBox" Height="20" Password=""/>
 
-            <Button Grid.Row="2" Content=" Confirm " IsCancel="True" HorizontalAlignment="Center" Click="LogIn" Width="74" Margin="0,20,0,50"/>
+            <Button Grid.Row="2" Content=" Login " IsCancel="True" HorizontalAlignment="Center" Click="LogIn" Width="74" Margin="0,20,0,50"/>
 
         </Grid>
     </Grid>

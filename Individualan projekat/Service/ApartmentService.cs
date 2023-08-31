@@ -32,8 +32,6 @@ namespace Individualan_projekat.Service
                 h.Apartments.Add(a.Id, a);
             }
         }
-
-
         public Apartment Get(int id)
         {
             return _apartmentRepository.Get(id);
@@ -57,14 +55,6 @@ namespace Individualan_projekat.Service
         public void Save()
         {
             _apartmentRepository.Save();
-        }
-        public void Subscribe(IObserver observer)
-        {
-            _apartmentRepository.Subscribe(observer);
-        }
-        public void Unsubscribe(IObserver observer)
-        {
-            _apartmentRepository.Unsubscribe(observer);
         }
         void IService<Apartment>.Update(Apartment entity)
         {

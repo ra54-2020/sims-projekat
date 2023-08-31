@@ -9,5 +9,6 @@ namespace Individualan_projekat.RepositoryInterfaces
         void Save();
 
         Hotel Delete(Hotel entity);
+        void Create(Hotel entity);
     }
 }

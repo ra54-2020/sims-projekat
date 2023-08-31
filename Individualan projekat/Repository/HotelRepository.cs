@@ -33,12 +33,11 @@ namespace Individualan_projekat.Repository
             _hotels = _serializer.FromCSV(_filePath);
             _observers = new List<IObserver>();
         }
-        public Hotel Create(Hotel entity)
+        public void Create(Hotel entity)
         {
             entity.Id = NextId();
             _hotels.Add(entity);
             Save();
-            return entity;
         }
         public Hotel Delete(Hotel entity)
         {
@@ -85,22 +84,5 @@ namespace Individualan_projekat.Repository
             return oldEntity;
         }
 
-        public void Subscribe(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
-
-        public void Unsubscribe(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
-
-        public void NotifyObservers()
-        {
-            foreach (var o in _observers)
-            {
-                o.Update();
-            }
-        }
     }
 }

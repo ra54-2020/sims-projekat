@@ -25,7 +25,7 @@
                 <DataGridTextColumn  Header="Apartment" Binding="{Binding Apartment.Name}" Width="110"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Date" Binding="{Binding StartDate, StringFormat=\{0:dd.MM.yyyy\}}" Width="120"></DataGridTextColumn>
                 <DataGridTextColumn  Header="Status" Binding="{Binding Status}" Width="120"></DataGridTextColumn>
-                <DataGridTextColumn  Header="Reason" Binding="{Binding Status}" Width="125"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Reason" Binding="{Binding Comment}" Width="125"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

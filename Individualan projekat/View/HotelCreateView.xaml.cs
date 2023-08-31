@@ -48,7 +48,8 @@ namespace Individualan_projekat.View
             h.JmbgOwner = OwnerJmbg;
             h.Accepted = false;
             _hotelService.Create(h);
-
+            MessageBox.Show("Your hotel has to be approved by the owner", "Hotel approval");
+            this.Close();
         }
     }
 }

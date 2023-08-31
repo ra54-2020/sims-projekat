@@ -1,5 +1,7 @@
 ﻿using Individualan_projekat.Model;
+using Individualan_projekat.Service;
 using Individualan_projekat.ServiceInterfaces;
+using Individualan_projekat.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,7 +32,10 @@ namespace Individualan_projekat.View
         {
             InitializeComponent();
             this.DataContext = this;
-        
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            _hotelService = InjectorService.CreateInstance<IHotelService>();
             this.Hotels = new ObservableCollection<Hotel>(_hotelService.GetAll().FindAll(h => !h.Accepted && MainWindow.LogInUser.Jmbg == h.JmbgOwner));
             
         }

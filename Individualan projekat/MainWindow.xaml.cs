@@ -33,6 +33,7 @@ namespace Individualan_projekat
         public static User LogInUser { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
         private int failureNumber = 0;
        
         public MainWindow()
@@ -74,15 +75,18 @@ namespace Individualan_projekat
 
             bool isEmailValid = ValidateEmail(Email);
             bool isPasswordValid = ValidatePassword(Password);
+            bool isValid = isEmailValid && isPasswordValid;
 
-            if (!isEmailValid)
+            if (!isValid)
             {
                 emailErrorText.Text = "Invalid email or password format";
                 emailErrorText.Visibility = Visibility.Visible;
                 failureNumber++;
                 if (failureNumber >= 3)
                 {
+                    MessageBox.Show("Three failed attempts. Closing the program.", "Error");
                     Close();
+                    return;
                 }
             }
             else
@@ -90,22 +94,7 @@ namespace Individualan_projekat
                 emailErrorText.Visibility = Visibility.Collapsed;
             }
 
-            if (!isPasswordValid)
-            {
-                emailErrorText.Text = "Invalid email or password format";
-                emailErrorText.Visibility = Visibility.Visible;
-                failureNumber++;
-                if (failureNumber >= 3)
-                {
-                    Close();
-                }
-            }
-            else
-            {
-                emailErrorText.Visibility = Visibility.Collapsed;
-            }
-
-            if (isEmailValid && isPasswordValid)
+            if (isValid)
             {
                 LogInUser = _ownerService.GetByEmailAndPassword(Email, Password);
                 if (LogInUser != null)
