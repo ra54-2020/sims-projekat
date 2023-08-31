@@ -19,7 +19,7 @@
             <Button x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" Margin="-30,8,0,0"/>
             <Button x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="8,8,0,0"/>
             <Button x:Name="ApproveHotelButton" Click="ApproveHotel" Content="Approve Hotel" Width="81" Height="22" Margin="8,8,0,0"/>
-            <Button x:Name="AddHotelButton" Click="AddHotel" Content="Add Hotel" Width="68" Height="22" Margin="564,6,0,0"/>
+            <Button x:Name="AddHotelButton" Click="AddHotel" Content="Add Hotel" Width="68" Height="22" Margin="583,6,0,0"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"

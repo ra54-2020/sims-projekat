@@ -42,6 +42,11 @@ namespace Individualan_projekat.View
             List<String> hotels = (List<string>)_hotelSerivece.GetAll().Where(r => r.OwnerId == MainWindow.LogInUser.Id).Select(h => h.Name).ToList();
 
             Hotels = new ObservableCollection<string>(hotels);
+            Hotels.Clear();
+            foreach(var h in hotels)
+            {
+                Hotels.Add(h);
+            }
         }
 
         public string NameA { get; set;  }

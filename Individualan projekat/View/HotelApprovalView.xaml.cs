@@ -39,6 +39,8 @@ namespace Individualan_projekat.View
         private void ApproveHotel(object sender, RoutedEventArgs e)
         {
             SelectedHotel.Accepted = true;
+            SelectedHotel.Owner = (Owner)MainWindow.LogInUser;
+            SelectedHotel.OwnerId = MainWindow.LogInUser.Id;
             _hotelService.Update(SelectedHotel);
             Close();
         }
@@ -46,6 +48,8 @@ namespace Individualan_projekat.View
         private void RejectHotel(object sender, RoutedEventArgs e)
         {
             _hotelService.Delete(SelectedHotel);
+            MessageBox.Show("Your hotel has been rejected", "Hotels");
+            HotelApprovalTableView.Hotels.Remove(SelectedHotel);
             Close();
         }
     }

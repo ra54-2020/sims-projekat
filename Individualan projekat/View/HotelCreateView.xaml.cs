@@ -33,7 +33,7 @@ namespace Individualan_projekat.View
         }
 
         public string Code { get; set; }
-        public string Name { get; set; }
+        public string NameA { get; set; }
         public int ConstructionYear { get; set; }
         public int StarsNumber { get; set; }
         public string OwnerJmbg { get; set; }
@@ -42,7 +42,7 @@ namespace Individualan_projekat.View
         {
             Hotel h = new Hotel();
             h.Code = Code;
-            h.Name = Name;
+            h.Name = NameA;
             h.ConstructionYear = ConstructionYear;
             h.StarsNumber = StarsNumber;
             h.JmbgOwner = OwnerJmbg;

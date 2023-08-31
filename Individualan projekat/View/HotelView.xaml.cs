@@ -236,7 +236,7 @@ namespace Individualan_projekat.View
         {
             HotelApprovalTableView ha = new HotelApprovalTableView();
             ha.Show();
-            this.Show();
+            this.Close();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Individualan_projekat.View
     { 
         public Hotel SelectedHotel { get; set; }
 
-        public ObservableCollection<Hotel> Hotels { get; set; }
+        public static ObservableCollection<Hotel> Hotels { get; set; }
         private readonly IHotelService _hotelService;
         public HotelApprovalTableView()
         {
@@ -36,7 +36,7 @@ namespace Individualan_projekat.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             _hotelService = InjectorService.CreateInstance<IHotelService>();
-            this.Hotels = new ObservableCollection<Hotel>(_hotelService.GetAll().FindAll(h => !h.Accepted && MainWindow.LogInUser.Jmbg == h.JmbgOwner));
+            Hotels = new ObservableCollection<Hotel>(_hotelService.GetAll().FindAll(h => !h.Accepted && MainWindow.LogInUser.Jmbg == h.JmbgOwner));
             
         }
 
@@ -44,6 +44,13 @@ namespace Individualan_projekat.View
         {
             HotelApprovalView ha = new HotelApprovalView(SelectedHotel);
             ha.Show();
+        }
+
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            HotelView h = new HotelView(MainWindow.LogInUser);
+            h.Show();
+            this.Close();
         }
     }
 }

@@ -14,7 +14,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="15,170,0,0" TextWrapping="Wrap" Text="Owner JMBG" VerticalAlignment="Top"/>
 
         <TextBox Text="{Binding Code}" HorizontalAlignment="Left" Margin="114,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
-        <TextBox Text="{Binding Name}" HorizontalAlignment="Left" Margin="114,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
+        <TextBox Text="{Binding NameA}" HorizontalAlignment="Left" Margin="114,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
         <TextBox Text="{Binding ConstructionYear}" HorizontalAlignment="Left" Margin="114,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
         <TextBox Text="{Binding StarsNumber}" HorizontalAlignment="Left" Margin="114,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
         <TextBox Text="{Binding OwnerJmbg}" HorizontalAlignment="Left" Margin="114,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>

@@ -13,13 +13,16 @@
                 <Button Click="FilterClick" Margin="8,20,0,0" Content="Search" Height="22" Width="50" />
                 <Button Click="ClearClick" Margin="8,20,0,0" Content="Clear" Height="22" Width="50" />
 
-                <Button Click="SortByName" Height="22" Content="Sort by name" Margin="48,20,0,0"/>
-                <Button Click="SortBySurname" Height="22" Content="Sort by surname" Margin="8,20,0,0"/>
+                <Button Click="SortByName" Height="22" Content="Name (A-Z)" Margin="48,20,0,0"/>
+                <Button Click="SortBySurname" Height="22" Content="Surname (A-Z)" Margin="8,20,0,0"/>
                 
-                <Button Margin="118,20,0,0" Click="CreateOwnerClick" Content="Create Owner" Height="22" />
+                <Button Margin="138,20,0,0" Click="CreateOwnerClick" Content="Create Owner" Height="22" />
                 <Button Margin="8,20,0,0" Click="HotelsClick" Content="Hotels" Height="22"  Width="50" />
                 <Button Margin="8,20,0,0" Click="Block" Height="22"> Block </Button>
                 <Button Margin="733,5,0,0" Click="Unblock" Height="22">Unblock</Button>
+                <Button Click="SortByNameReversed" Content="Name (Z-A)" Height="22" Margin="315,-20,50,0"/>
+                <Button Click="SortBySurnameReversed" Content="Surname (Z-A)" Height="22" Margin="389,-22,50,0"/>
+
             </WrapPanel>
 
             <DataGrid DockPanel.Dock="Bottom" 

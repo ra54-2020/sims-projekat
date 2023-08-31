@@ -140,10 +140,6 @@ namespace Individualan_projekat.View
             {
                 Users.Add(u);
             }
-            foreach (var uu in users.OrderByDescending(u => u.Name).ToList())
-            {
-                Users.Add(uu);
-            }
         }
 
         private void SortBySurname(object sender, RoutedEventArgs e)
@@ -158,6 +154,7 @@ namespace Individualan_projekat.View
             {
                 Users.Add(u1);
             }
+
         }
 
         public User ChosenUser { get; set;  }
@@ -204,6 +201,34 @@ namespace Individualan_projekat.View
                 _adminstratorService.Update((Administrator)ChosenUser);
             }
             ClearClick(sender, e);
+        }
+
+        private void SortByNameReversed(object sender, RoutedEventArgs e)
+        {
+            List<User> users = new List<User>();
+            users.AddRange(_ownerService.GetAll());
+            users.AddRange(_adminstratorService.GetAll());
+            users.AddRange(_guestService.GetAll());
+
+            Users.Clear();
+            foreach (var uu in users.OrderByDescending(u => u.Name).ToList())
+            {
+                Users.Add(uu);
+            }
+        }
+
+        private void SortBySurnameReversed(object sender, RoutedEventArgs e)
+        {
+            List<User> users = new List<User>();
+            users.AddRange(_ownerService.GetAll());
+            users.AddRange(_adminstratorService.GetAll());
+            users.AddRange(_guestService.GetAll());
+
+            Users.Clear();
+            foreach (var u1 in users.OrderByDescending(u1 => u1.Surname).ToList())
+            {
+                Users.Add(u1);
+            }
         }
     }
 }
