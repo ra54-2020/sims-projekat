@@ -1,8 +1,8 @@
-﻿1,fs,Four seasons,1960,5,0607958676652,1
-2,baaj,Burj Al Arab Jumerah,2000,7,0809969726534,3
-3,tp,The Plaza,1907,4,1261296675624,4
-4,rp,The Ritz Paris,1898,5,0607958676652,1
-5,pl,Falkensteiner,2010,4,9283749826574,3
-6,sh,Sheraton,2019,3,8972826170989,3
-7,hi,Hotel Inn,1998,3,9283046788876,3
-8,hib,Ibis,2016,3,3101957877924,2
+﻿1,fs,Four seasons,1960,5,0607958676652,1,true
+2,baaj,Burj Al Arab Jumerah,2000,7,0809969726534,3,true
+3,tp,The Plaza,1907,4,1261296675624,4,true
+4,rp,The Ritz Paris,1898,5,0607958676652,1,true
+5,pl,Falkensteiner,2010,4,9283749826574,3,true
+6,sh,Sheraton,2019,3,8972826170989,3,true
+7,hi,Hotel Inn,1998,3,9283046788876,3,true
+8,hib,Ibis,2016,3,3101957877924,2,true

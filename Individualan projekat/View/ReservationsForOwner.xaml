@@ -10,8 +10,9 @@
         <WrapPanel  Margin="90,22,90,365" DockPanel.Dock="Top">
             <ComboBox Width="130" Height="22" ItemsSource="{Binding Filters}" SelectedItem="{Binding SelectedFilter}"/>
             <Button Content="Search" Click="Filter" Width="50" Margin="8,0,0,0"/>
+            <Button Click="Clear" Content="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
 
-            <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="08,0,8,0"/>
+            <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="88,0,8,0"/>
             <TextBlock Margin="08,25,8,0" x:Name="textErrorText" Foreground="Red" Visibility="Collapsed"/>
 
             <Button Click="HotelClick" Content="Search" Height="22" Width="50"/>

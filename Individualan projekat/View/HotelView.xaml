@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat.View"
         mc:Ignorable="d"
-        Title="Hotel" Height="450" Width="800">
+        Title="Hotel" Height="500" Width="850">
     <DockPanel>
-        <WrapPanel  Margin="74,10,70,0" DockPanel.Dock="Top" Width="646" Height="55">
+        <WrapPanel  Margin="74,10,70,0" DockPanel.Dock="Top" Width="652" Height="103">
             <Button Click="SortByStar" Height="22" Content="Sort by stars"/>
             <Button Click="SortByName" Height="22" Content="Sort by name" Margin="8,0,0,0"/>
 
@@ -16,9 +16,10 @@
             <Button Click="Filter" Content="Search" Height="22" Width="50"/>
             <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
 
-            <Button  x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" Margin="0,8,0,0"/>
-            <Button  x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="8,8,0,0"/>
+            <Button x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" Margin="0,8,0,0"/>
+            <Button x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="8,8,0,0"/>
             <Button x:Name="OwnerCreateButton" Click="AddOwner" Content="Add Owner" Width="68" Height="22" Margin="563,-25,0,0"/>
+            <Button Click="AddHotel" Content="Add Hotel" Width="68" Height="22" Margin="563,5,0,0"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 
                   ItemsSource="{Binding Path=Apartments, UpdateSourceTrigger=PropertyChanged}"
@@ -33,7 +34,7 @@
                 <DataGridTextColumn  Header="Stars number" Binding="{Binding Hotel.StarsNumber}" Width="110"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Click="SignOutButton" Content="Sign out" Height="22" Width="50" Margin="700,-95,0,0"/>
+        <Button Click="SignOutButton" Content="Sign out" Height="22" Width="50" Margin="770,-195,0,0"/>
 
     </DockPanel>
 </Window>

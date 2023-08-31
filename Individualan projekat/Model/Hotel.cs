@@ -21,7 +21,7 @@ namespace Individualan_projekat.Model
         private string _jmbgOwner;
         private int _ownerId;
         private Owner _owner;
-
+        public bool Accepted { get; set; }
         public int Id
         {
             get { return _id; }
@@ -136,7 +136,7 @@ namespace Individualan_projekat.Model
         }
         public Hotel()
         {
-
+            _apartments = new Dictionary<int, Apartment>();
         }
 
         public virtual string[] ToCSV()
@@ -150,6 +150,7 @@ namespace Individualan_projekat.Model
                 StarsNumber.ToString(),
                 JmbgOwner,
                 OwnerId.ToString(),
+                Accepted.ToString()
             };
             return csvValues;
         }
@@ -162,6 +163,7 @@ namespace Individualan_projekat.Model
             StarsNumber = Convert.ToInt32(values[4]);
             JmbgOwner = values[5];
             OwnerId = Convert.ToInt32(values[6]);
+            Accepted = Convert.ToBoolean(values[7]);
         }
     }
 }

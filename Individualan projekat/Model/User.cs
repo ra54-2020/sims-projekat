@@ -20,7 +20,7 @@ namespace Individualan_projekat.Model
         private string _name;
         private string _surname;
         private string _phoneNumber;
-        public bool Blocked;
+        public bool Blocked { get; set; }
         public int Id
         {
             get { return _id; }

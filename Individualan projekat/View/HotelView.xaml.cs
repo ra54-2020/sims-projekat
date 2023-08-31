@@ -56,7 +56,7 @@ namespace Individualan_projekat.View
             _hotelService = InjectorService.CreateInstance<IHotelService>();
             _apartmentService = InjectorService.CreateInstance<IApartmentService>();
 
-            Apartments = new ObservableCollection<Apartment>(_apartmentService.GetAll());
+            Apartments = new ObservableCollection<Apartment>(_apartmentService.GetAll().Where(a => a.Hotel.Accepted));
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -192,7 +192,6 @@ namespace Individualan_projekat.View
             }
         }
 
-
         private void ShowReservations(object sender, RoutedEventArgs e)
         {
             ReservationsForOwner rfo = new ReservationsForOwner();
@@ -230,6 +229,11 @@ namespace Individualan_projekat.View
             }
 
         }
-        
+
+        private void AddHotel(object sender, RoutedEventArgs e)
+        {
+            HotelCreateView hc = new HotelCreateView();
+            hc.Show();
+        }
     }
 }

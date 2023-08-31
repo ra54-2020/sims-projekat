@@ -45,7 +45,7 @@ namespace Individualan_projekat.Service
 
         void IService<Owner>.Update(Owner entity)
         {
-            throw new NotImplementedException();
+            _ownerRepository.Update(entity);
         }
 
         public void Create(Owner owner)

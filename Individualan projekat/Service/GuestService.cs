@@ -41,7 +41,7 @@ namespace Individualan_projekat.Service
 
         void IService<Guest>.Update(Guest entity)
         {
-            throw new NotImplementedException();
+            _guestRepository.Update(entity);
         }
     }
 }

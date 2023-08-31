@@ -67,7 +67,14 @@ namespace Individualan_projekat.Repository
         }
         public Guest Update(Guest entity)
         {
-            throw new NotImplementedException();
+            Guest oldEntity = Get(entity.Id);
+            if (oldEntity == null)
+            {
+                return null;
+            }
+            oldEntity = entity;
+            Save();
+            return oldEntity;
         }
     }
 }

@@ -44,7 +44,14 @@ namespace Individualan_projekat.Repository
         }
         public Owner Update(Owner entity)
         {
-            throw new NotImplementedException();
+            Owner oldEntity = Get(entity.Id);
+            if(oldEntity == null)
+            {
+                return null;
+            }
+            oldEntity = entity;
+            Save();
+            return oldEntity;
         }
 
         public void Create(Owner owner)

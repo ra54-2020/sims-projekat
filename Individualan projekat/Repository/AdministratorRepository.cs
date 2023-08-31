@@ -74,7 +74,14 @@ namespace Individualan_projekat.Repository
 
         public Administrator Update(Administrator entity)
         {
-            throw new NotImplementedException();
+            Administrator oldEntity = Get(entity.Id);
+            if (oldEntity == null)
+            {
+                return null;
+            }
+            oldEntity = entity;
+            Save();
+            return oldEntity;
         }
 
         public Administrator Get(int id)

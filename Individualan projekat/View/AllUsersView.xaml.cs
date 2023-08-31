@@ -164,6 +164,10 @@ namespace Individualan_projekat.View
 
         private void Block(object sender, RoutedEventArgs e)
         {
+            if(ChosenUser == null)
+            {
+                return;
+            }
             ChosenUser.Blocked = true;
             if(ChosenUser is Guest)
             {
@@ -171,12 +175,35 @@ namespace Individualan_projekat.View
             }
             else if(ChosenUser is Owner)
             {
-
+                _ownerService.Update((Owner)ChosenUser);
             }
             else
             {
-
+                _adminstratorService.Update((Administrator)ChosenUser);
             }
+            ClearClick(sender, e);
+        }
+
+        private void Unblock(object sender, RoutedEventArgs e)
+        {
+            if (ChosenUser == null)
+            {
+                return;
+            }
+            ChosenUser.Blocked = false;
+            if (ChosenUser is Guest)
+            {
+                _guestService.Update((Guest)ChosenUser);
+            }
+            else if (ChosenUser is Owner)
+            {
+                _ownerService.Update((Owner)ChosenUser);
+            }
+            else
+            {
+                _adminstratorService.Update((Administrator)ChosenUser);
+            }
+            ClearClick(sender, e);
         }
     }
 }
