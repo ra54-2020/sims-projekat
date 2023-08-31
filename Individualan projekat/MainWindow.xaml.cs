@@ -77,7 +77,7 @@ namespace Individualan_projekat
 
             if (!isEmailValid)
             {
-                emailErrorText.Text = "Invalid email format";
+                emailErrorText.Text = "Invalid email or password format";
                 emailErrorText.Visibility = Visibility.Visible;
                 failureNumber++;
                 if (failureNumber >= 3)
@@ -92,8 +92,8 @@ namespace Individualan_projekat
 
             if (!isPasswordValid)
             {
-                passwordErrorText.Text = "Invalid password";
-                passwordErrorText.Visibility = Visibility.Visible;
+                emailErrorText.Text = "Invalid email or password format";
+                emailErrorText.Visibility = Visibility.Visible;
                 failureNumber++;
                 if (failureNumber >= 3)
                 {
@@ -102,7 +102,7 @@ namespace Individualan_projekat
             }
             else
             {
-                passwordErrorText.Visibility = Visibility.Collapsed;
+                emailErrorText.Visibility = Visibility.Collapsed;
             }
 
             if (isEmailValid && isPasswordValid)
@@ -110,6 +110,11 @@ namespace Individualan_projekat
                 LogInUser = _ownerService.GetByEmailAndPassword(Email, Password);
                 if (LogInUser != null)
                 {
+                    if(LogInUser.Blocked)
+                    {
+                        MessageBox.Show("User is blocked", "Warning!");
+                        return;
+                    }
                     HotelView view = new HotelView(LogInUser);
                     view.Show();
                     Close();
@@ -119,6 +124,11 @@ namespace Individualan_projekat
                 LogInUser = _guestService.GetByEmailAndPassword(Email, Password);
                 if (LogInUser != null)
                 {
+                    if (LogInUser.Blocked)
+                    {
+                        MessageBox.Show("User is blocked", "Warning!");
+                        return;
+                    }
                     HotelView view = new HotelView(LogInUser);
                     view.Show();
                     Close();
@@ -128,7 +138,12 @@ namespace Individualan_projekat
                 LogInUser = _administratorService.GetByEmailAndPassword(Email, Password);
                 if (LogInUser != null)
                 {
-                    HotelView view = new HotelView(LogInUser);
+                    if (LogInUser.Blocked)
+                    {
+                        MessageBox.Show("User is blocked", "Warning!");
+                        return;
+                    }
+                    AllUsersView view = new AllUsersView();
                     view.Show();
                     Close();
                     return;

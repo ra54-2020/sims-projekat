@@ -20,7 +20,7 @@ namespace Individualan_projekat.Model
         private string _name;
         private string _surname;
         private string _phoneNumber;
-
+        public bool Blocked;
         public int Id
         {
             get { return _id; }
@@ -123,7 +123,8 @@ namespace Individualan_projekat.Model
                 Password,
                 Name,
                 Surname,
-                PhoneNumber
+                PhoneNumber,
+                Blocked.ToString()
             };
             return csvValues;
         }
@@ -137,6 +138,7 @@ namespace Individualan_projekat.Model
             Name = values[4];
             Surname = values[5];
             PhoneNumber = values[6];
+            Blocked = bool.Parse(values[7]);
         }
     }
 }

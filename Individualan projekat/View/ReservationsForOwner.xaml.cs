@@ -77,7 +77,6 @@ namespace Individualan_projekat.View
             set
             {
                 _text = value;
-
             }
         }
 

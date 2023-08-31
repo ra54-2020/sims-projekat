@@ -76,3 +76,5 @@ C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\ApartmentEnterView.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerCreateView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\OwnerCreateView.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AllUsersView.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\AllUsersView.baml

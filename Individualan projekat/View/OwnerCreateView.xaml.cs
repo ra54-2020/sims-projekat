@@ -23,6 +23,9 @@ namespace Individualan_projekat.View
     public partial class OwnerCreateView : Window
     {
         private IOwnerService _ownerService;
+
+        private readonly IAdministratorService _adminstratorService;
+        private readonly IGuestService _guestService;
         public OwnerCreateView()
         {
             InitializeComponent();
@@ -31,12 +34,15 @@ namespace Individualan_projekat.View
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             _ownerService = InjectorService.CreateInstance<IOwnerService>();
+            _adminstratorService = InjectorService.CreateInstance<IAdministratorService>();
+            _guestService = InjectorService.CreateInstance<IGuestService>();
+
         }
 
         public string JMBG { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Name { get; set; }
+        public string NameA { get; set; }
         public string Surname { get; set; }
         public string PhoneNumber { get; set; }
 
@@ -45,17 +51,18 @@ namespace Individualan_projekat.View
             var tmp = _ownerService.GetAll().Find(o => o.Email == Email || o.Jmbg == JMBG);
             if(tmp != null)
             {
-                MessageBox.Show("Try again", "Alert");
+                MessageBox.Show("Try again. Email or JMBG already exists", "Alert");
                 return;
             }
             Owner o = new Owner();
             o.Jmbg = JMBG;
             o.Email = Email;
             o.Password = Password;
-            o.Name = Name;
+            o.Name = NameA;
             o.Surname = Surname;
             o.PhoneNumber = PhoneNumber;
             _ownerService.Create(o);
+            AllUsersView.Users.Add(o);
         }
     }
 }
