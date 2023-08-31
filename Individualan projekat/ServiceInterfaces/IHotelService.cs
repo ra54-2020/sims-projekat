@@ -10,5 +10,8 @@ namespace Individualan_projekat.ServiceInterfaces
         List<Hotel> GetAll();
         void Create(Hotel hotel);
         List<Apartment> GetAllApartments();
+
+        void Update(Hotel hotel);
+        void Delete(Hotel hotel);
     }
 }

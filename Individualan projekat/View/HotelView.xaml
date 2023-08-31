@@ -19,6 +19,7 @@
             <Button x:Name="CreateApartmentButton" Click="CreateApartment" Content="Create Apartment" Width="101" Height="22" Margin="0,8,0,0"/>
             <Button x:Name="ReservationButton" Click="ShowReservations" Content="Reservations" Width="70" Height="22" Margin="8,8,0,0"/>
             <Button x:Name="OwnerCreateButton" Click="AddOwner" Content="Add Owner" Width="68" Height="22" Margin="563,-25,0,0"/>
+            <Button Click="ApproveHotel" Content="Approve Hotel" Width="81" Height="22" Margin="475,-25,0,0"/>
             <Button Click="AddHotel" Content="Add Hotel" Width="68" Height="22" Margin="563,5,0,0"/>
         </WrapPanel>
         <DataGrid DockPanel.Dock="Bottom" 

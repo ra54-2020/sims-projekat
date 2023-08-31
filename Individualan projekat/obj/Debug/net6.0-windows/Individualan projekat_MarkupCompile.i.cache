@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\App.xaml
-12861255303
+13-1600180052
 
-55644504613
+56-692086869
 1942030480316
-MainWindow.xaml;View\AllUsersView.xaml;View\ApartmentEnterView.xaml;View\ApartmentFilterCondition.xaml;View\ApproveReservationView.xaml;View\HotelApprovalView.xaml;View\HotelCreateView.xaml;View\HotelView.xaml;View\OwnerCreateView.xaml;View\ReservationApartmentView.xaml;View\ReservationsForOwner.xaml;View\ReservationShowView.xaml;
+MainWindow.xaml;View\AllUsersView.xaml;View\ApartmentEnterView.xaml;View\ApartmentFilterCondition.xaml;View\ApproveReservationView.xaml;View\HotelApprovalTableView.xaml;View\HotelApprovalView.xaml;View\HotelCreateView.xaml;View\HotelView.xaml;View\OwnerCreateView.xaml;View\ReservationApartmentView.xaml;View\ReservationsForOwner.xaml;View\ReservationShowView.xaml;
 
 True
 

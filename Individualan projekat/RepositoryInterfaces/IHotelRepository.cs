@@ -7,5 +7,7 @@ namespace Individualan_projekat.RepositoryInterfaces
     {
         Hotel Update(Hotel entity);
         void Save();
+
+        Hotel Delete(Hotel entity);
     }
 }

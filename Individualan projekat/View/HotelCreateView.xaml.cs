@@ -48,6 +48,7 @@ namespace Individualan_projekat.View
             h.JmbgOwner = OwnerJmbg;
             h.Accepted = false;
             _hotelService.Create(h);
+
         }
     }
 }

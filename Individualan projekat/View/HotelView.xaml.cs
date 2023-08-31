@@ -235,5 +235,12 @@ namespace Individualan_projekat.View
             HotelCreateView hc = new HotelCreateView();
             hc.Show();
         }
+
+        private void ApproveHotel(object sender, RoutedEventArgs e)
+        {
+            HotelApprovalTableView ha = new HotelApprovalTableView();
+            ha.Show();
+            this.Show();
+        }
     }
 }

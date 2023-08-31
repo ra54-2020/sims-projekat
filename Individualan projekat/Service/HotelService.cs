@@ -38,9 +38,9 @@ namespace Individualan_projekat.Service
         {
             return _hotelRepository.GetAll();
         }
-        public Hotel Update(Hotel entity)
+        public void Update(Hotel entity)
         {
-            return _hotelRepository.Update(entity);
+            _hotelRepository.Update(entity);
         }
         public void Save()
         {
@@ -55,6 +55,11 @@ namespace Individualan_projekat.Service
         public List<Apartment> GetAllApartments()
         {
             throw new NotImplementedException();
+        }
+
+        public void Delete(Hotel hotel)
+        {
+            _hotelRepository.Delete(hotel);
         }
     }
 }

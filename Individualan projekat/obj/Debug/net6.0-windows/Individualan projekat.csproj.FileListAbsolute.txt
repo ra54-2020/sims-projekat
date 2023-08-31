@@ -82,3 +82,5 @@ C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelCreateView.g.cs
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelApprovalView.baml
 C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelCreateView.baml
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelApprovalTableView.g.cs
+C:\Users\masha\Desktop\SIMS-projekat\Individualan projekat\Individualan projekat\obj\Debug\net6.0-windows\View\HotelApprovalTableView.baml
