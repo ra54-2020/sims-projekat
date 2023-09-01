@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,6 +78,48 @@ namespace Individualan_projekat.View
             set
             {
                 _text = value;
+                OnPropertyChanged("Text");
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+
+                if (columnName == "Text")
+                {
+                    if (columnName == "Text")
+                    {
+                        if (string.IsNullOrEmpty(Text))
+                        {
+                            return "Field is empty";
+                        }
+
+                        if (!Regex.IsMatch(Text, "^[a-zA-Z]+$"))
+                        {
+                            return "Only letters";
+                        }
+                    }
+                }
+               
+                return null;
+            }
+
+        }
+        private readonly string[] _validatedProperties = { "Text" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
             }
         }
 
@@ -117,14 +160,18 @@ namespace Individualan_projekat.View
 
         private void HotelClick(object sender, RoutedEventArgs e)
         {
-            List<Reservation> a = new List<Reservation>();
-
-            a = _reservationService.GetAll().FindAll(ap => ap.Owner.Id == MainWindow.LogInUser.Id && ap.Apartment.Hotel.Name.ToLower().Contains(Text.ToLower()));
-
-            Reservations.Clear();
-            foreach (Reservation r in a)
+            if(IsValid)
             {
-                Reservations.Add(r);
+                List<Reservation> a = new List<Reservation>();
+
+                a = _reservationService.GetAll().FindAll(ap => ap.Owner.Id == MainWindow.LogInUser.Id && ap.Apartment.Hotel.Name.ToLower().Contains(Text.ToLower()));
+
+                Reservations.Clear();
+                foreach (Reservation r in a)
+                {
+                    Reservations.Add(r);
+                }
+
             }
 
         }

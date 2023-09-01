@@ -45,6 +45,11 @@ namespace Individualan_projekat.View
 
         private void MakeReservation(object sender, RoutedEventArgs e)
         {
+            if (StartDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("You have to fill the date", "Warning");
+                return;
+            }
             Reservation reservation = new Reservation();
             reservation.StartDate = StartDatePicker.SelectedDate.Value;
             reservation.Status = Model.Enums.ReservationStatus.Waiting;

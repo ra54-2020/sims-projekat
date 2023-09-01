@@ -11,6 +11,7 @@
 8,Waiting,1,4,03/08/2023,False,1,
 9,Rejected,1,2,10/08/2023,False,3,The apartment is available on this application
 10,Waiting,1,7,16/08/2023,False,3,
-11,Waiting,1,9,11/08/2023,False,3,
-12,Waiting,1,6,15/08/2023,False,3,
-13,Waiting,1,7,14/08/2023,False,3,
+11,Canceled,1,9,11/08/2023,False,3,
+12,Rejected,1,6,15/08/2023,False,3,The apartment is available on this application, so the guest could make a reservation, but someone made an appointment for the same apartment over the phone, and the owner still cannot confirm the reservation.
+13,Approved,1,7,14/08/2023,False,3,
+14,Waiting,1,6,12/09/2023,False,3,

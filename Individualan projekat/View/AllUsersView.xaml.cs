@@ -161,7 +161,7 @@ namespace Individualan_projekat.View
 
         private void Block(object sender, RoutedEventArgs e)
         {
-            if(ChosenUser == null)
+            if (ChosenUser == null)
             {
                 return;
             }

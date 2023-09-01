@@ -15,13 +15,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Individualan_projekat.ServiceInterfaces;
 using Individualan_projekat.Util;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace Individualan_projekat.View
 {
     /// <summary>
     /// Interaction logic for ApartmentEnterView.xaml
     /// </summary>
-    public partial class ApartmentEnterView : Window
+    public partial class ApartmentEnterView : Window, INotifyPropertyChanged
     {
         public static ObservableCollection<String> Hotels { get; set; }
         private readonly IHotelService _hotelSerivece;
@@ -49,31 +52,182 @@ namespace Individualan_projekat.View
             }
         }
 
-        public string NameA { get; set;  }
-        public string RoomNumber { get; set; }
-        public string MaxGuestNumber { get; set; }
-        public string Description { get; set; }
-
+        private string _nameA;
+        public string NameA
+        {
+            get => _nameA;
+            set
+            {
+                if(_nameA != value)
+                {
+                    value = _nameA;
+                    OnPropertyChanged("NameA");
+                }
+            }
+        }
+        private string _roomNumber;
+        public string RoomNumber
+        {
+            get => _roomNumber;
+            set
+            {
+                if (_roomNumber != value)
+                {
+                    value = _roomNumber;
+                    OnPropertyChanged("RoomNumber");
+                }
+            }
+        }
+        private string _maxGuestNumber;
+        public string MaxGuestNumber
+        {
+            get => _maxGuestNumber;
+            set
+            {
+                if (_maxGuestNumber != value)
+                {
+                    value = _maxGuestNumber;
+                    OnPropertyChanged("MaxGuestNumber");
+                }
+            }
+        }
+        private string _description;
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                if(_description != value)
+                {
+                    value = _description;
+                    OnPropertyChanged("Description");
+                }
+            }
+        }
         public string SelectedHotel { get; set; }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+
+                if (columnName == "NameA")
+                {
+                    if (columnName == "NameA")
+                    {
+                        if (string.IsNullOrEmpty(NameA))
+                        {
+                            return "Field is empty";
+                        }
+
+                        if (!Regex.IsMatch(NameA, "^[a-zA-Z]+$"))
+                        {
+                            return "Only letters";
+                        }
+                    }
+                }
+                if (columnName == "RoomNumber")
+                {
+                    if (columnName == "RoomNumber")
+                    {
+                        if (string.IsNullOrEmpty(RoomNumber))
+                        {
+                            return "Field is empty";
+                        }
+                        if (!int.TryParse(RoomNumber, out int roomNumberValue))
+                        {
+                            return "Invalid input";
+                        }
+
+                        if (roomNumberValue < 1 || roomNumberValue > 100)
+                        {
+                            return "Number between 1 and 100.";
+                        }
+                    }
+                }
+                if (columnName == "MaxGuestNumber")
+                {
+                    if (columnName == "MaxGuestNumber")
+                    {
+                        if (string.IsNullOrEmpty(MaxGuestNumber))
+                        {
+                            return "Field is empty";
+                        }
+                        if (!int.TryParse(MaxGuestNumber, out int maxGuestNumberValue))
+                        {
+                            return "Invalid input";
+                        }
+
+                        if (maxGuestNumberValue < 1 || maxGuestNumberValue > 100)
+                        {
+                            return "Number between 1 and 100.";
+                        }
+                    }
+                }
+
+                if (columnName == "Description")
+                {
+                    if (columnName == "Description")
+                    {
+                        if (string.IsNullOrEmpty(Description))
+                        {
+                            return "Field is empty";
+                        }
+                        if (!Regex.IsMatch(Description, "^[a-zA-Z]+$"))
+                        {
+                            return "Only letters";
+                        }
+                    }
+                }
+                return null;
+            }
+
+        }
+        private readonly string[] _validatedProperties = { "Code", "RoomNumber", "MaxGuestNumber", "Description" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
 
         private void CreateAppartment(object sender, RoutedEventArgs e)
         {
-            Apartment a = new Apartment();
-            a.Name = NameA;
-            a.RoomNumber = int.Parse(RoomNumber);
-            a.MaxGuestNumber = int.Parse(MaxGuestNumber);
-            a.Description = Description;
-            a.Hotel = _hotelSerivece.GetAll().Find(h => h.Name == SelectedHotel);
-            a.HotelId = a.Hotel.Id;
-            _apartmentService.Create(a);
-
-            HotelView.Apartments.Clear();
-            foreach (var ap in _apartmentService.GetAll())
+            if (IsValid)
             {
-                HotelView.Apartments.Add(ap);
-            }
+                Apartment a = new Apartment();
+                a.Name = NameA;
+                a.RoomNumber = int.Parse(RoomNumber);
+                a.MaxGuestNumber = int.Parse(MaxGuestNumber);
+                a.Description = Description;
+                a.Hotel = _hotelSerivece.GetAll().Find(h => h.Name == SelectedHotel);
+                a.HotelId = a.Hotel.Id;
+                _apartmentService.Create(a);
 
-            this.Close();
+                HotelView.Apartments.Clear();
+                foreach (var ap in _apartmentService.GetAll())
+                {
+                    HotelView.Apartments.Add(ap);
+                }
+
+                this.Close();
+
+            }
         }
         
 

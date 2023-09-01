@@ -6,13 +6,21 @@
         xmlns:local="clr-namespace:Individualan_projekat.View"
         mc:Ignorable="d"
         Title="Hotel" Height="500" Width="850">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
     <DockPanel>
         <WrapPanel  Margin="74,10,70,0" DockPanel.Dock="Top" Width="652" Height="103">
             <Button Click="SortByStar" Height="22" Content="Sort by stars" Margin="-30,0,0,0"/>
             <Button Click="SortByName" Height="22" Content="Sort by name" Margin="8,0,0,0"/>
 
-            <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="155,1,8,0"/>
-            <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text}" TextWrapping="Wrap" Height="22" Margin="0,1,8,0"/>
+            <ComboBox ItemsSource="{Binding Hotels, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="155,1,8,0"/>
+            <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" TextWrapping="Wrap" Height="22" Margin="0,1,8,0"/>
             <Button Click="Filter" Content="Search" Height="22" Width="50"/>
             <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
 

@@ -126,40 +126,80 @@ namespace Individualan_projekat.View
             set
             {
                 _text = value;
-             
+                OnPropertyChanged("Text");
             }
         }
-        
+
+        public string this[string columnName]
+        {
+            get
+            {
+
+                if (columnName == "Text")
+                {
+                    if (columnName == "Text")
+                    {
+                        if (string.IsNullOrEmpty(Text))
+                        {
+                            return "Field is empty";
+                        }
+                    }
+                }
+                
+                return null;
+            }
+
+        }
+        private readonly string[] _validatedProperties = { "Text" };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
+            }
+        }
+
         private void Filter(object sender, RoutedEventArgs e)
         {
-            List<Apartment> a = new List<Apartment>();
-            if(SelectedHotel == "Code")
+            if(IsValid)
             {
-                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.Code.ToLower().Contains(Text.ToLower()));
+                List<Apartment> a = new List<Apartment>();
+                if(SelectedHotel == "Code")
+                {
+                    a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.Code.ToLower().Contains(Text.ToLower()));
+                }
+                else if(SelectedHotel == "Name")
+                {
+                    a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.Name.ToLower().Contains(Text.ToLower()));
+                }
+                else if(SelectedHotel == "Construction year")
+                {
+                    a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.ConstructionYear.ToString().ToLower().Contains(Text));
+                }
+                else if(SelectedHotel == "Stars number")
+                {
+                    a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.StarsNumber == Convert.ToInt32(Text));
+                }
+                else if(SelectedHotel == "Apartments")
+                {
+                    ApartmentFilterCondition ac = new ApartmentFilterCondition();
+                    ac.Show();
+                }
+                Apartments.Clear();
+                foreach (var ap in a)
+                {
+                    Apartments.Add(ap);
+                }
+                OnPropertyChanged(nameof(Apartments));
+
             }
-            else if(SelectedHotel == "Name")
-            {
-                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.Name.ToLower().Contains(Text.ToLower()));
-            }
-            else if(SelectedHotel == "Construction year")
-            {
-                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.ConstructionYear.ToString().ToLower().Contains(Text));
-            }
-            else if(SelectedHotel == "Stars number")
-            {
-                a = _apartmentService.GetAll().FindAll(ap => ap.Hotel.StarsNumber == Convert.ToInt32(Text));
-            }
-            else if(SelectedHotel == "Apartments")
-            {
-                ApartmentFilterCondition ac = new ApartmentFilterCondition();
-                ac.Show();
-            }
-            Apartments.Clear();
-            foreach (var ap in a)
-            {
-                Apartments.Add(ap);
-            }
-            OnPropertyChanged(nameof(Apartments));
 
         }
         private void Clear(object sender, RoutedEventArgs e)

@@ -6,11 +6,19 @@
         xmlns:local="clr-namespace:Individualan_projekat.View"
         mc:Ignorable="d"
         Title="Apartment" Height="250" Width="300">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
         <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,41,0,0"
-                  ItemsSource="{Binding Apartments}" SelectedItem="{Binding SelectedApartment}" Width="129"/>
+                  ItemsSource="{Binding Apartments, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  SelectedItem="{Binding SelectedApartment}" Width="129"/>
         <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,100,0,0"
-                 TextWrapping="Wrap" Text="{Binding Condition}"  Width="131" Height="22"/>
+                 TextWrapping="Wrap" Text="{Binding Condition, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  Width="131" Height="22"/>
             
         <Button Click="Search" Content="Search" HorizontalAlignment="Left" Margin="125,174,0,0" VerticalAlignment="Top" Height="22" Width="46"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,43,0,0" TextWrapping="Wrap" Text="Select option" VerticalAlignment="Top" Height="20" Width="73"/>

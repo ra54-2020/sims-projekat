@@ -4,8 +4,11 @@ using Individualan_projekat.Util;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +24,7 @@ namespace Individualan_projekat.View
     /// <summary>
     /// Interaction logic for ApartmentFilterCondition.xaml
     /// </summary>
-    public partial class ApartmentFilterCondition : Window
+    public partial class ApartmentFilterCondition : Window, INotifyPropertyChanged
     {
         public ObservableCollection<String> Apartments { get; set; }
 
@@ -57,37 +60,86 @@ namespace Individualan_projekat.View
             set
             {
                 _condition = value;
+                OnPropertyChanged("Condition");
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public string this[string columnName]
+        {
+            get
+            {
+
+                if (columnName == "Condition")
+                {
+                    if (columnName == "Condition")
+                    {
+                        if (string.IsNullOrEmpty(Condition))
+                        {
+                            return "Field is empty";
+                        }
+
+                        if (!Regex.IsMatch(Condition, "^[a-zA-Z]+$"))
+                        {
+                            return "Only letters";
+                        }
+                    }
+                }    
+                return null;
+            }
+
+        }
+        private readonly string[] _validatedProperties = { "Condition" };
+        public bool IsValid
+        {
+            get
+            {
+                foreach (var property in _validatedProperties)
+                {
+                    if (this[property] != null)
+                        return false;
+                }
+
+                return true;
             }
         }
         private void Search(object sender, RoutedEventArgs e)
         {
-            List<Apartment> apartments = new List<Apartment>();
-            if(SelectedApartment == "Room")
+            if(IsValid)
             {
-                apartments = _apartmentService.GetAll().FindAll(ap => ap.RoomNumber == Convert.ToInt32(Condition));
-            }
-            else if(SelectedApartment == "People")
-            {
-                apartments = _apartmentService.GetAll().FindAll(ap => ap.MaxGuestNumber == Convert.ToInt32(Condition));
-            }
-            else
-            {
-                String[] conditions = Condition.Split(' ');
-                if (conditions[1] == "&")
+
+                List<Apartment> apartments = new List<Apartment>();
+                if(SelectedApartment == "Room")
                 {
-                    apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) && a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
+                    apartments = _apartmentService.GetAll().FindAll(ap => ap.RoomNumber == Convert.ToInt32(Condition));
+                }
+                else if(SelectedApartment == "People")
+                {
+                    apartments = _apartmentService.GetAll().FindAll(ap => ap.MaxGuestNumber == Convert.ToInt32(Condition));
                 }
                 else
                 {
-                    apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) || a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
+                    String[] conditions = Condition.Split(' ');
+                    if (conditions[1] == "&")
+                    {
+                        apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) && a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
+                    }
+                    else
+                    {
+                        apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) || a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
+                    }
+                }
+                HotelView.Apartments.Clear();
+                foreach (Apartment a in apartments)
+                {
+                    HotelView.Apartments.Add(a);
                 }
             }
-            HotelView.Apartments.Clear();
-            foreach (Apartment a in apartments)
-            {
-                HotelView.Apartments.Add(a);
-            }
-            
         }
     }
 }
