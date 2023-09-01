@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat.View"
+        xmlns:val="clr-namespace:Individualan_projekat.Validation"
         mc:Ignorable="d"
         Title="Apartment" Height="300" Width="350">
     <Window.Resources>
@@ -22,12 +23,110 @@
 
         <Button Click="CreateAppartment" Content="Create" HorizontalAlignment="Left" Margin="260,229,0,0" VerticalAlignment="Top" Height="22" Width="46"/>
 
-        <TextBox Text="{Binding NameA, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  HorizontalAlignment="Left" Margin="143,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22">
-            
+        <TextBox HorizontalAlignment="Left" Margin="143,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22">
+            <TextBox.Text>
+                <Binding Path="NameA" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
+                    <Binding.ValidationRules>
+                        <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                        <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="red" FontSize="6" Margin="0,2,0,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
         </TextBox>
-        <TextBox Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  HorizontalAlignment="Left" Margin="143,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
-        <TextBox Text="{Binding MaxGuestNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  HorizontalAlignment="Left" Margin="143,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22"/>
-        <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" HorizontalAlignment="Left" Margin="143,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="53"/>
+        <TextBox HorizontalAlignment="Left" Margin="143,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22">
+            <TextBox.Text>
+                <Binding Path="RoomNumber" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
+                    <Binding.ValidationRules>
+                        <val:IntegerNumberValidationRule ValidationStep="RawProposedValue"/>
+                        <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="red" FontSize="6" Margin="0,2,0,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Margin="143,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="22">
+            <TextBox.Text>
+                <Binding Path="MaxGuestNumber" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
+                    <Binding.ValidationRules>
+                        <val:IntegerNumberValidationRule ValidationStep="RawProposedValue"/>
+                        <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="red" FontSize="6" Margin="0,2,0,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Margin="143,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="53">
+            <TextBox.Text>
+                <Binding Path="Description" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
+                    <Binding.ValidationRules>
+                        <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                        <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="red" FontSize="6" Margin="0,2,0,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
         <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}"  HorizontalAlignment="Left" Margin="143,11,0,0" VerticalAlignment="Top" Width="140" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,11,0,0" TextWrapping="Wrap" Text="Hotel name" VerticalAlignment="Top"/>
 

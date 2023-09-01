@@ -144,18 +144,7 @@ namespace Individualan_projekat.View
                         }
                     }
                 }
-                if(columnName == "ConstructionYear")
-                {
-                    if (ConstructionYear == 0)
-                    {
-                        return "Field is empty";
-                    }
-
-                    if (ConstructionYear < 1000 || ConstructionYear > 9999)
-                    {
-                        return "Construction year must be a four-digit number.";
-                    }
-                }
+               
                 if (columnName == "StarsNumber")
                 {
                     if (StarsNumber == 0)

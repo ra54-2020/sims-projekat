@@ -4,23 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Individualan_projekat.View"
+        xmlns:val="clr-namespace:Individualan_projekat.Validation"
         mc:Ignorable="d"
         Title="Hotel" Height="500" Width="850">
-    <Window.Resources>
-        <ControlTemplate x:Key="ValidationTemplate">
-            <StackPanel>
-                <AdornedElementPlaceholder x:Name="textBox" />
-                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
-            </StackPanel>
-        </ControlTemplate>
-    </Window.Resources>
     <DockPanel>
         <WrapPanel  Margin="74,10,70,0" DockPanel.Dock="Top" Width="652" Height="103">
             <Button Click="SortByStar" Height="22" Content="Sort by stars" Margin="-30,0,0,0"/>
             <Button Click="SortByName" Height="22" Content="Sort by name" Margin="8,0,0,0"/>
 
-            <ComboBox ItemsSource="{Binding Hotels, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="155,1,8,0"/>
-            <TextBox x:Name="myTextBox" Width="120" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" TextWrapping="Wrap" Height="22" Margin="0,1,8,0"/>
+            <ComboBox ItemsSource="{Binding Hotels}" SelectedItem="{Binding SelectedHotel}" Height="22" Width="130" Margin="155,1,8,0"/>
+            <TextBox x:Name="myTextBox" Width="120" TextWrapping="Wrap" Height="22" Margin="0,1,8,0">
+                <TextBox.Text>
+                    <Binding Path="Text" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
+                        <Binding.ValidationRules>
+                            <val:StringValidationRule ValidationStep="RawProposedValue"/>
+                            <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="red" FontSize="6" Margin="0,2,0,0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
             <Button Click="Filter" Content="Search" Height="22" Width="50"/>
             <Button Content="Clear" Click="Clear" Margin="8,0,0,0" Height="22" Width="50"/>
 
