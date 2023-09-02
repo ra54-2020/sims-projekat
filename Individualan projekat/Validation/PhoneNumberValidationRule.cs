@@ -14,11 +14,6 @@ namespace Individualan_projekat.Validation
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             string input = value as string;
-
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                return ValidationResult.ValidResult;
-            }
             string phonePattern = @"^\d{10}$";
 
             if (!Regex.IsMatch(input, phonePattern))

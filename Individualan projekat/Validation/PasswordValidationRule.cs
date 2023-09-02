@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Individualan_projekat.Validation
 {
-    public class RoomAndPeopleValidationRule : ValidationRule
+    public class PasswordValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
@@ -20,11 +20,9 @@ namespace Individualan_projekat.Validation
                 return new ValidationResult(false, "Field cannot be empty");
             }
 
-            string pattern = @"^\d+(\s|,|\|)?(\s|,|\|)?\d*$";
-
-            if (!Regex.IsMatch(input, pattern))
+            if (!Regex.IsMatch(input, @"^[0-9]+$"))
             {
-                return new ValidationResult(false, "Invalid input format");
+                return new ValidationResult(false, "Field must contain only numeric characters");
             }
             return ValidationResult.ValidResult;
         }

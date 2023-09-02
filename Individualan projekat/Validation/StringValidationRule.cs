@@ -9,11 +9,24 @@ using System.Windows.Controls;
 
 namespace Individualan_projekat.Validation
 {
-    public class StringValidationRule: ValidationRule
+    public class StringValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            string input = value as string;
+            string input;
+
+            if (value is string)
+            {
+                input = (string)value;
+            }
+            else if (value is int intValue)
+            {
+                input = intValue.ToString();
+            }
+            else
+            {
+                return new ValidationResult(false, "Unsupported input type");
+            }
 
             if (string.IsNullOrWhiteSpace(input))
             {
@@ -28,4 +41,5 @@ namespace Individualan_projekat.Validation
             return ValidationResult.ValidResult;
         }
     }
+
 }

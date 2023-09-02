@@ -17,7 +17,6 @@
                 <TextBox.Text>
                     <Binding Path="Text" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" StringFormat='{}{0:#}'>
                         <Binding.ValidationRules>
-                            <val:StringValidationRule ValidationStep="RawProposedValue"/>
                             <val:RequiredFieldValidation ValidationStep="RawProposedValue"/>
                         </Binding.ValidationRules>
                     </Binding>

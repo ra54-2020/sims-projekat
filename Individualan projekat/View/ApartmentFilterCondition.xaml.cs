@@ -60,7 +60,6 @@ namespace Individualan_projekat.View
             set
             {
                 _condition = value;
-                OnPropertyChanged("Condition");
             }
         }
 
@@ -70,75 +69,34 @@ namespace Individualan_projekat.View
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public string this[string columnName]
-        {
-            get
-            {
-
-                if (columnName == "Condition")
-                {
-                    if (columnName == "Condition")
-                    {
-                        if (string.IsNullOrEmpty(Condition))
-                        {
-                            return "Field is empty";
-                        }
-
-                        if (!Regex.IsMatch(Condition, "^[a-zA-Z]+$"))
-                        {
-                            return "Only letters";
-                        }
-                    }
-                }    
-                return null;
-            }
-
-        }
-        private readonly string[] _validatedProperties = { "Condition" };
-        public bool IsValid
-        {
-            get
-            {
-                foreach (var property in _validatedProperties)
-                {
-                    if (this[property] != null)
-                        return false;
-                }
-
-                return true;
-            }
-        }
+       
         private void Search(object sender, RoutedEventArgs e)
         {
-            if(IsValid)
+            List<Apartment> apartments = new List<Apartment>();
+            if(SelectedApartment == "Room")
             {
-
-                List<Apartment> apartments = new List<Apartment>();
-                if(SelectedApartment == "Room")
+                apartments = _apartmentService.GetAll().FindAll(ap => ap.RoomNumber == Convert.ToInt32(Condition));
+            }
+            else if(SelectedApartment == "People")
+            {
+                apartments = _apartmentService.GetAll().FindAll(ap => ap.MaxGuestNumber == Convert.ToInt32(Condition));
+            }
+            else
+            {
+                String[] conditions = Condition.Split(' ');
+                if (conditions[1] == "&")
                 {
-                    apartments = _apartmentService.GetAll().FindAll(ap => ap.RoomNumber == Convert.ToInt32(Condition));
-                }
-                else if(SelectedApartment == "People")
-                {
-                    apartments = _apartmentService.GetAll().FindAll(ap => ap.MaxGuestNumber == Convert.ToInt32(Condition));
+                    apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) && a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
                 }
                 else
                 {
-                    String[] conditions = Condition.Split(' ');
-                    if (conditions[1] == "&")
-                    {
-                        apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) && a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
-                    }
-                    else
-                    {
-                        apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) || a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
-                    }
+                    apartments = _apartmentService.GetAll().FindAll(a => a.RoomNumber == Convert.ToInt32(conditions[0]) || a.MaxGuestNumber == Convert.ToInt32(conditions[2]));
                 }
-                HotelView.Apartments.Clear();
-                foreach (Apartment a in apartments)
-                {
-                    HotelView.Apartments.Add(a);
-                }
+            }
+            HotelView.Apartments.Clear();
+            foreach (Apartment a in apartments)
+            {
+                HotelView.Apartments.Add(a);
             }
         }
     }

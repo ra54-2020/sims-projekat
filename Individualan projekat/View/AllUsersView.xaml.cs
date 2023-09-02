@@ -165,6 +165,11 @@ namespace Individualan_projekat.View
             {
                 return;
             }
+            if (ChosenUser.Blocked)
+            {
+                MessageBox.Show("This user is already blocked.", "User Blocked");
+                return;
+            }
             ChosenUser.Blocked = true;
             if(ChosenUser is Guest)
             {
@@ -185,6 +190,11 @@ namespace Individualan_projekat.View
         {
             if (ChosenUser == null)
             {
+                return;
+            }
+            if (!ChosenUser.Blocked)
+            {
+                MessageBox.Show("This user has not been blocked.", "User Unlocked");
                 return;
             }
             ChosenUser.Blocked = false;

@@ -17,13 +17,12 @@ namespace Individualan_projekat.Validation
 
             if (string.IsNullOrWhiteSpace(input))
             {
-                return new ValidationResult(false, "Field is required.");
+                return new ValidationResult(false, "Field is required");
             }
-            string emailPattern = @"^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$";
-
-            if (!Regex.IsMatch(input, emailPattern))
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if(!Regex.IsMatch(input, pattern))
             {
-                return new ValidationResult(false, "Invalid email format. Please enter a valid email address.");
+                return new ValidationResult(false, "Invalid email format");
             }
 
             return ValidationResult.ValidResult;

@@ -12,9 +12,11 @@ namespace Individualan_projekat.Validation
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (string.IsNullOrEmpty((value ?? "").ToString()))
+            string input = value as string;
+
+            if (string.IsNullOrWhiteSpace(input))
             {
-                return new ValidationResult(false, "This must be filled!");
+                return new ValidationResult(false, "Field cannot be empty");
             }
 
             return ValidationResult.ValidResult;

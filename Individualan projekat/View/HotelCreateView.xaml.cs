@@ -44,7 +44,6 @@ namespace Individualan_projekat.View
                 if(value != _code)
                 {
                     _code = value;
-                    OnPropertyChanged("Code");
                 }
             }
         }
@@ -57,7 +56,6 @@ namespace Individualan_projekat.View
                 if (value != _name)
                 {
                     _name = value;
-                    OnPropertyChanged("NameA");
                 }
             }
         }
@@ -70,7 +68,6 @@ namespace Individualan_projekat.View
                 if (value != _constructionYear)
                 {
                     _constructionYear = value;
-                    OnPropertyChanged("ConstructionYear");
                 }
             }
         }
@@ -83,7 +80,6 @@ namespace Individualan_projekat.View
                 if (value != _starsNumber)
                 {
                     _starsNumber = value;
-                    OnPropertyChanged("StarsNumber");
                 }
             }
         }
@@ -96,7 +92,6 @@ namespace Individualan_projekat.View
                 if (value != _ownerJmbg)
                 {
                     _ownerJmbg = value;
-                    OnPropertyChanged("OwnerJmbg");
 
                 }
             }
@@ -109,108 +104,19 @@ namespace Individualan_projekat.View
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public string this[string columnName]
-        {
-            get
-            {
-
-                if (columnName == "Code")
-                {
-                    if (columnName == "Code")
-                    {
-                        if (string.IsNullOrEmpty(Code))
-                        {
-                            return "Field is empty";
-                        }
-
-                        if (!Regex.IsMatch(Code, @"^[a-zA-Z]{1,3}$"))
-                        {
-                            return "Field has to have max 3 letters";
-                        }
-                    }
-                }
-                if (columnName == "NameA")
-                {
-                    if (columnName == "NameA")
-                    {
-                        if (string.IsNullOrEmpty(Code))
-                        {
-                            return "Field is empty";
-                        }
-
-                        if (!Regex.IsMatch(NameA, "^[a-zA-Z]+$"))
-                        {
-                            return "Field requires only letters";
-                        }
-                    }
-                }
-               
-                if (columnName == "StarsNumber")
-                {
-                    if (StarsNumber == 0)
-                    {
-                        return "Field is empty";
-                    }
-
-                    if (StarsNumber < 1 || StarsNumber > 5)
-                    {
-                        return "Stars number must be between 1 and 5";
-                    }
-                }
-                if (columnName == "OwnerJmbg")
-                {
-                    if (columnName == "OwnerJmbg")
-                    {
-                        if (string.IsNullOrEmpty(OwnerJmbg))
-                        {
-                            return "Field is empty";
-                        }
-                        if (OwnerJmbg.Length != 13)
-                        {
-                            return "JMBG must be exactly 13 digits long.";
-                        }
-
-                        if (!OwnerJmbg.All(char.IsDigit))
-                        {
-                            return "JMBG can only contain digits.";
-                        }
-                    }
-                }
-                return null;
-            }
-
-        }
-        private readonly string[] _validatedProperties = { "Code", "NameA", "ConstructionYear", "StarsNumber", "OwnerJmbg" };
-
-        public bool IsValid
-        {
-            get
-            {
-                foreach (var property in _validatedProperties)
-                {
-                    if (this[property] != null)
-                        return false;
-                }
-
-                return true;
-            }
-        }
-
         private void CreateHotel(object sender, RoutedEventArgs e)
         {
-            if(IsValid)
-            {
-                Hotel h = new Hotel();
-                h.Code = Code;
-                h.Name = NameA;
-                h.ConstructionYear = ConstructionYear;
-                h.StarsNumber = StarsNumber;
-                h.JmbgOwner = OwnerJmbg;
-                h.Accepted = false;
-                _hotelService.Create(h);
-                MessageBox.Show("Your hotel has to be approved by the owner", "Hotel approval");
-                this.Close();
-            }
+            Hotel h = new Hotel();
+            h.Code = Code;
+            h.Name = NameA;
+            h.ConstructionYear = ConstructionYear;
+            h.StarsNumber = StarsNumber;
+            h.JmbgOwner = OwnerJmbg;
+            h.Accepted = false;
+            _hotelService.Create(h);
+            MessageBox.Show("Your hotel has to be approved by the owner", "Hotel approval");
+            this.Close();
         }
+        
     }
 }
